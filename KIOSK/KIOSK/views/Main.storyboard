@@ -125,49 +125,59 @@
                                         <rect key="frame" x="0.0" y="0.0" width="341" height="339"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiddleCell" rowHeight="120" id="oXC-Eh-7X5" customClass="MiddleCell" customModule="KIOSK" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="341" height="120"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiddleCell" rowHeight="177" id="oXC-Eh-7X5" customClass="MiddleCell" customModule="KIOSK" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="341" height="177"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXC-Eh-7X5" id="eSe-hc-3mQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="120"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="177"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asl-GH-y3a">
-                                                            <rect key="frame" x="190" y="11" width="106" height="98"/>
-                                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="bK1-SB-nCg"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="R"/>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CR-Vm-AVO">
-                                                            <rect key="frame" x="45" y="11" width="100" height="98"/>
-                                                            <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                            <rect key="frame" x="50" y="16" width="100" height="100"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="10M-k9-boe"/>
+                                                                <constraint firstAttribute="width" constant="100" id="GNr-1w-KUW"/>
+                                                                <constraint firstAttribute="height" constant="100" id="x7j-pc-Yah"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="L"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Series 9" title="L"/>
                                                             <connections>
                                                                 <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="mpy-N5-tqe"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-5O-c71">
+                                                            <rect key="frame" x="191" y="16" width="100" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="lqQ-2s-bLD"/>
+                                                                <constraint firstAttribute="height" constant="100" id="xur-ra-dhM"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="iPad Air" title="R"/>
+                                                            <connections>
+                                                                <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="4S0-Wn-7IF"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g11-VL-XYp">
+                                                            <rect key="frame" x="177" y="131" width="130" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="5lI-dX-4OH"/>
+                                                                <constraint firstAttribute="width" constant="130" id="c90-RY-3GB"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="detail"/>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="bottom" secondItem="eSe-hc-3mQ" secondAttribute="bottomMargin" id="70z-fV-P2D"/>
-                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" id="7HC-Oq-PnX"/>
-                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="25" id="8tr-jL-AXG"/>
-                                                        <constraint firstItem="asl-GH-y3a" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" id="D1p-q3-jvf"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="asl-GH-y3a" secondAttribute="trailing" constant="25" id="ExN-Em-BkE"/>
-                                                        <constraint firstItem="asl-GH-y3a" firstAttribute="bottom" secondItem="eSe-hc-3mQ" secondAttribute="bottomMargin" id="gZe-8Y-tRj"/>
-                                                        <constraint firstItem="asl-GH-y3a" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="170" id="lbC-Qe-G93"/>
+                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" constant="5" id="4lm-DM-dKb"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="qhS-5O-c71" secondAttribute="trailing" constant="30" id="7Ys-8C-5Ln"/>
+                                                        <constraint firstItem="g11-VL-XYp" firstAttribute="top" secondItem="qhS-5O-c71" secondAttribute="bottom" constant="15" id="Fg7-dW-pt5"/>
+                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="30" id="XrW-Oq-hYh"/>
+                                                        <constraint firstItem="qhS-5O-c71" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" constant="5" id="iKk-Ga-reT"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="g11-VL-XYp" secondAttribute="trailing" constant="14" id="x0D-Vd-8ou"/>
+                                                        <constraint firstItem="g11-VL-XYp" firstAttribute="bottom" secondItem="eSe-hc-3mQ" secondAttribute="bottomMargin" constant="5" id="xYu-wN-JjT"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                                 <connections>
                                                     <outlet property="btnLeft" destination="2CR-Vm-AVO" id="iZV-ah-GFy"/>
-                                                    <outlet property="btnRight" destination="asl-GH-y3a" id="XR8-lK-BVT"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -200,7 +210,7 @@
                     <connections>
                         <outlet property="bottomTableView" destination="ES0-LT-c33" id="5hG-uF-eTe"/>
                         <outlet property="cancelButton" destination="QaY-Zy-U5B" id="FHV-3g-4V8"/>
-                        <outlet property="middleTableView" destination="iYa-Of-LYx" id="CqR-WP-wZd"/>
+                        <outlet property="middleTableView" destination="Byy-gt-9PR" id="3hz-er-GOE"/>
                         <outlet property="payButton" destination="sIR-5P-GxQ" id="pIK-xW-49s"/>
                         <outlet property="totalPrice" destination="eVe-RU-jx5" id="Qyb-r7-mbs"/>
                     </connections>
@@ -212,17 +222,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Series 9" width="63" height="75"/>
+        <image name="iPad Air" width="85" height="89"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

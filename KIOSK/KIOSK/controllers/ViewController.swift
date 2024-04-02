@@ -22,28 +22,36 @@ class ViewController: UIViewController, UITableViewDataSource {
     //var newitemArray = DataManager().getItemDate()
     //print(newitemArray)
     
+    //middleTableView
+    
+    @IBOutlet weak var middleTableView: UITableView!
+    
+    //bottomTableView
     @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
-    
-    
-    @IBOutlet weak var middleTableView: UIView!
+
     
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        MidconfigureUI()
         setupDatas()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == middleTableView{
+            print(1)
+            return 2
+        }
         return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell1 = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+    
         // bottomTableVioew cell 동작 실행
         if tableView == bottomTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
@@ -52,13 +60,16 @@ class ViewController: UIViewController, UITableViewDataSource {
             cell.buyCountInCell.titleLabel?.text = String(itemArray[indexPath.row].count)
             cell.buyNameInCell.text = itemArray[indexPath.row].name
             cell.buyPriceInCell.text = "₩ \(itemArray[indexPath.row].price)"
-            
             return cell
         }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath)
+            print("mid cell")
             
+
+            return cell
         }
-        return cell1
     }
+   
    
 
     // 초기 설정
@@ -66,6 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         bottomTableView.dataSource = self
         bottomTableView.rowHeight = 18
+        
         
         cancelButton.setTitle("취 소", for: .normal)
         cancelButton.layer.cornerRadius = 18
@@ -83,6 +95,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         payButton.layer.cornerRadius = 18
         
         totalPrice.text = "₩ 0"
+    }
+    
+    func MidconfigureUI() {
+        
+        middleTableView.dataSource = self
+        middleTableView.rowHeight = 160
+        
+
+        
     }
     
     func setupDatas() {
@@ -133,6 +154,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
+    
+    
     
 }
 
