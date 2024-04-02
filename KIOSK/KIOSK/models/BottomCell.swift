@@ -9,6 +9,7 @@ import UIKit
 
 class BottomCell: UITableViewCell {
     
+    
     @IBOutlet weak var buyColorInCell: UIImageView!
     @IBOutlet weak var buyNameInCell: UILabel!
     @IBOutlet weak var buyCountInCell: UIButton!
