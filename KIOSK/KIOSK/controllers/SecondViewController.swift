@@ -71,6 +71,15 @@ class SecondViewController: UIViewController {
         
         makeViewRound(midnightBackView)
         makeViewRound(midnightView)
+        
+        makeViewRound(minusButton)
+        makeViewRound(plusButton)
+
+        minusButton.setTitle("", for: .normal)
+        plusButton.setTitle("", for: .normal)
+        
+        quantityBackView.layer.cornerRadius = 20
+        BasketButton.layer.cornerRadius = 20
 
         // MARK: - Bottom View
         bottomViewRound(bottomModalView, withRadius: 30.0)
