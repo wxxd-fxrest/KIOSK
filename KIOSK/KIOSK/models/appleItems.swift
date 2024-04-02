@@ -9,10 +9,12 @@ import Foundation
 
 struct appleItem {
     let name: String
-    let variety: String
+    var variety: String
     let price: Int
     var color: String
     var count: Int
 }
+
+
 
 

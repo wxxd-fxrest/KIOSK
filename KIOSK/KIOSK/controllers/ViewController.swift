@@ -15,6 +15,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Green", count: 2)
     ]
     
+    //테스트 공간
+    var newitemArray: [appleItem] = []
+    var myDataManager = DataManager()
+
+    //var newitemArray = DataManager().getItemDate()
+    //print(newitemArray)
+    
     @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
@@ -28,6 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupDatas()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,6 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+        // bottomTableVioew cell 동작 실행
         if tableView == bottomTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
             
@@ -50,6 +59,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         return cell1
     }
+   
 
     // 초기 설정
     func configureUI() {
@@ -75,14 +85,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         totalPrice.text = "₩ 0"
     }
     
-    
+    func setupDatas() {
+        myDataManager.makeItemData()
+        myDataManager.updateItemVariety()
+        newitemArray = myDataManager.getItemDate()
+        
+        
+        for i in newitemArray{
+            print(i)
+        }
+                
+    }
 
-    
-    
-    
-    
-    
-    
     @IBAction func payButtonTapped(_ sender: UIButton) {
         // 얼럿 설정
         let alertController = UIAlertController(title: "결제", message: "모든 주문에 무료 배송 서비스가 제공됩니다.", preferredStyle: .alert)
