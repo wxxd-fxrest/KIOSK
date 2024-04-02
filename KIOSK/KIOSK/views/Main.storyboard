@@ -144,14 +144,14 @@
                                                                 <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="mpy-N5-tqe"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-5O-c71">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-5O-c71" userLabel="btn Right">
                                                             <rect key="frame" x="191" y="16" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="lqQ-2s-bLD"/>
                                                                 <constraint firstAttribute="height" constant="100" id="xur-ra-dhM"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="iPad Air" title="R"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="iPad Air"/>
                                                             <connections>
                                                                 <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="4S0-Wn-7IF"/>
                                                             </connections>
@@ -164,6 +164,12 @@
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="detail"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tti-Sc-lmB">
+                                                            <rect key="frame" x="63" y="124" width="75" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -178,6 +184,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="btnLeft" destination="2CR-Vm-AVO" id="iZV-ah-GFy"/>
+                                                    <outlet property="btnRight" destination="qhS-5O-c71" id="nYc-bg-yjh"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

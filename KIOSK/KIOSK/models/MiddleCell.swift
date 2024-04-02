@@ -10,6 +10,7 @@ import UIKit
 
 class MiddleCell: UITableViewCell {
     
+    
     @IBOutlet weak var btnRight: UIButton!
     @IBOutlet weak var btnLeft: UIButton!
     

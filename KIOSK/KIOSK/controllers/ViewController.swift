@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     //테스트 공간
     var newitemArray: [appleItem] = []
     var myDataManager = DataManager()
+    var midPageCount = 1
 
     //var newitemArray = DataManager().getItemDate()
     //print(newitemArray)
@@ -40,12 +41,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         configureUI()
         MidconfigureUI()
         setupDatas()
+        
+        // 필터링된 결과 출력 예시
+        print()
+        let macItems = myDataManager.itemsVariety(forVariety: "iPhone")
+        for item in macItems {
+            print("\(item.name) (\(item.variety)) - \(item.color): ₩\(item.price)")
+        }
+        // 여기까지 필터링
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == middleTableView{
-            print(1)
-            return 2
+            return midPageCount
         }
         return itemArray.count
     }
@@ -62,11 +70,19 @@ class ViewController: UIViewController, UITableViewDataSource {
             cell.buyPriceInCell.text = "₩ \(itemArray[indexPath.row].price)"
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath)
-            print("mid cell")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
+                    fatalError("The dequeued cell is not an instance of MiddleCell.")
+                }
+                
+                // 예제: cell의 UI 컴포넌트 구성
             
+            cell.btnRight.setTitle("", for: .normal)       // 일반 상태
+            cell.btnLeft.setTitle("", for: .normal)       // 일반 상태
+            // 필요한 다른 상태들에 대해서도 동일하게 적용
 
-            return cell
+                // cell.someImageView.image = someImage
+
+                return cell
         }
     }
    
@@ -101,10 +117,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         middleTableView.dataSource = self
         middleTableView.rowHeight = 160
-        
-
-        
+            
     }
+
     
     func setupDatas() {
         myDataManager.makeItemData()

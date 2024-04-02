@@ -83,6 +83,11 @@ class DataManager {
             itemArray = updatedItems // 완성된 updatedItems 배열로 itemArray를 업데이트합니다.
     }
     
+    // Mac , iMac , ... Variety로 분류
+    func itemsVariety(forVariety variety: String) -> [appleItem] {
+            return itemArray.filter { $0.variety == variety }
+    }
+    
     func getItemDate() -> [appleItem] {
         return itemArray
     }
