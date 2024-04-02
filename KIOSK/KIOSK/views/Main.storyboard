@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppleStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KIOSK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomCell" id="UWZ-pY-7Zi" userLabel="BottomCell" customClass="BottomCell" customModule="AppleStore" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomCell" id="UWZ-pY-7Zi" userLabel="BottomCell" customClass="BottomCell" customModule="KIOSK" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="341" height="44.666667938232422"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWZ-pY-7Zi" id="5kJ-X5-BC2">
@@ -118,9 +118,68 @@
                                     <constraint firstAttribute="height" constant="190" id="wUd-M7-q97"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYa-Of-LYx">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYa-Of-LYx" userLabel="Middle View">
                                 <rect key="frame" x="26" y="269" width="341" height="339"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-gt-9PR">
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="339"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiddleCell" rowHeight="120" id="oXC-Eh-7X5" customClass="MiddleCell" customModule="KIOSK" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="341" height="120"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXC-Eh-7X5" id="eSe-hc-3mQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asl-GH-y3a">
+                                                            <rect key="frame" x="190" y="11" width="106" height="98"/>
+                                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="bK1-SB-nCg"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="R"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CR-Vm-AVO">
+                                                            <rect key="frame" x="45" y="11" width="100" height="98"/>
+                                                            <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="10M-k9-boe"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="L"/>
+                                                            <connections>
+                                                                <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="mpy-N5-tqe"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="bottom" secondItem="eSe-hc-3mQ" secondAttribute="bottomMargin" id="70z-fV-P2D"/>
+                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" id="7HC-Oq-PnX"/>
+                                                        <constraint firstItem="2CR-Vm-AVO" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="25" id="8tr-jL-AXG"/>
+                                                        <constraint firstItem="asl-GH-y3a" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" id="D1p-q3-jvf"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="asl-GH-y3a" secondAttribute="trailing" constant="25" id="ExN-Em-BkE"/>
+                                                        <constraint firstItem="asl-GH-y3a" firstAttribute="bottom" secondItem="eSe-hc-3mQ" secondAttribute="bottomMargin" id="gZe-8Y-tRj"/>
+                                                        <constraint firstItem="asl-GH-y3a" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="170" id="lbC-Qe-G93"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <connections>
+                                                    <outlet property="btnLeft" destination="2CR-Vm-AVO" id="iZV-ah-GFy"/>
+                                                    <outlet property="btnRight" destination="asl-GH-y3a" id="XR8-lK-BVT"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Byy-gt-9PR" secondAttribute="bottom" id="FkS-DY-wje"/>
+                                    <constraint firstAttribute="trailing" secondItem="Byy-gt-9PR" secondAttribute="trailing" id="XZO-ZZ-5Xv"/>
+                                    <constraint firstItem="Byy-gt-9PR" firstAttribute="top" secondItem="iYa-Of-LYx" secondAttribute="top" id="dS8-Xk-CRf"/>
+                                    <constraint firstItem="Byy-gt-9PR" firstAttribute="leading" secondItem="iYa-Of-LYx" secondAttribute="leading" id="p3M-KF-p6a"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -141,33 +200,29 @@
                     <connections>
                         <outlet property="bottomTableView" destination="ES0-LT-c33" id="5hG-uF-eTe"/>
                         <outlet property="cancelButton" destination="QaY-Zy-U5B" id="FHV-3g-4V8"/>
+                        <outlet property="middleTableView" destination="iYa-Of-LYx" id="CqR-WP-wZd"/>
                         <outlet property="payButton" destination="sIR-5P-GxQ" id="pIK-xW-49s"/>
                         <outlet property="totalPrice" destination="eVe-RU-jx5" id="Qyb-r7-mbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="b3G-D6-9Ca" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-8.3969465648854964" y="-28.169014084507044"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="mEE-7x-qcn">
-            <objects>
-                <viewController id="ccz-qU-YM9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="27s-La-uFQ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Add-op-lrj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Qa-zt-1jC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="818" y="-28"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

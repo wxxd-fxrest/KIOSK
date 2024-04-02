@@ -15,6 +15,7 @@
 		52A7AF6D2BBBA3A600DABD4E /* BottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7AF6C2BBBA3A600DABD4E /* BottomCell.swift */; };
 		52A7AF6F2BBBA3B000DABD4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7AF6E2BBBA3B000DABD4E /* ViewController.swift */; };
 		52A7AF712BBBA3BE00DABD4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A7AF702BBBA3BE00DABD4E /* Assets.xcassets */; };
+		FAAC02562BBBCF2800BC98D5 /* MiddleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC02552BBBCF2800BC98D5 /* MiddleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		52A7AF6C2BBBA3A600DABD4E /* BottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomCell.swift; sourceTree = "<group>"; };
 		52A7AF6E2BBBA3B000DABD4E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52A7AF702BBBA3BE00DABD4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAAC02552BBBCF2800BC98D5 /* MiddleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				52A7AF6A2BBBA3A100DABD4E /* appleItems.swift */,
 				52A7AF6C2BBBA3A600DABD4E /* BottomCell.swift */,
+				FAAC02552BBBCF2800BC98D5 /* MiddleCell.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAC02562BBBCF2800BC98D5 /* MiddleCell.swift in Sources */,
 				52A7AF6F2BBBA3B000DABD4E /* ViewController.swift in Sources */,
 				52A7AF6D2BBBA3A600DABD4E /* BottomCell.swift in Sources */,
 				52A7AF552BBBA2FE00DABD4E /* AppDelegate.swift in Sources */,

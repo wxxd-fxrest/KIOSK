@@ -16,14 +16,15 @@ class ViewController: UIViewController, UITableViewDataSource {
     ]
     
     @IBOutlet weak var bottomTableView: UITableView!
-    
-    
-    
-    
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
     
+    
+    @IBOutlet weak var middleTableView: UIView!
+    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -34,14 +35,20 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
-        
-        cell.buyColorInCell.image = #imageLiteral(resourceName: "mango")
-        cell.buyCountInCell.titleLabel?.text = String(itemArray[indexPath.row].count)
-        cell.buyNameInCell.text = itemArray[indexPath.row].name
-        cell.buyPriceInCell.text = "₩ \(itemArray[indexPath.row].price)"
-        
-        return cell
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+        if tableView == bottomTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+            
+            cell.buyColorInCell.image = #imageLiteral(resourceName: "mango")
+            cell.buyCountInCell.titleLabel?.text = String(itemArray[indexPath.row].count)
+            cell.buyNameInCell.text = itemArray[indexPath.row].name
+            cell.buyPriceInCell.text = "₩ \(itemArray[indexPath.row].price)"
+            
+            return cell
+        }else{
+            
+        }
+        return cell1
     }
 
     // 초기 설정
