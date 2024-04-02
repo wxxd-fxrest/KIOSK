@@ -12,8 +12,6 @@ struct appleItem {
     let variety: String
     let price: Int
     var color: String
-    
-    
     var count: Int
 }
 

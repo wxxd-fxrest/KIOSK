@@ -14,7 +14,16 @@ class BottomCell: UITableViewCell {
     @IBOutlet weak var buyCountInCell: UIButton!
     @IBOutlet weak var buyPriceInCell: UILabel!
     
-    func setup() {
-        buyColorInCell.layer.cornerRadius = 15
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
     }
+    
+    func setup() {
+        buyColorInCell.layer.cornerRadius = buyColorInCell.frame.size.width / 2
+        buyColorInCell.clipsToBounds = true
+        buyCountInCell.tintColor = .black
+        
+    }
+    
 }

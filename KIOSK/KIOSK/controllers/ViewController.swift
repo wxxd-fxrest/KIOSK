@@ -11,15 +11,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // 임시 데이터
     var itemArray: [appleItem] = [
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Black", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Green", count: 2)
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2)
     ]
     
     @IBOutlet weak var bottomTableView: UITableView!
     
-    
-    
-    
+    @IBOutlet weak var buyCount: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
@@ -36,8 +34,23 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
         
-        cell.buyColorInCell.image = #imageLiteral(resourceName: "mango")
-        cell.buyCountInCell.titleLabel?.text = String(itemArray[indexPath.row].count)
+        // color에 따라 이미지 설정
+        let item = itemArray[indexPath.row]
+        
+        switch item.color {
+        case "Silver":
+            cell.buyColorInCell.image = UIImage(named: "silver")
+        case "Space Gray":
+            cell.buyColorInCell.image = UIImage(named: "space gray")
+        case "Starlight":
+            cell.buyColorInCell.image = UIImage(named: "starlight")
+        case "Midnight":
+            cell.buyColorInCell.image = UIImage(named: "midnight")
+        default:
+            // 기본 이미지 설정
+            cell.buyColorInCell.image = UIImage(named: "mango")
+        }
+        cell.buyCountInCell.setTitle(String(item.count), for: .normal)
         cell.buyNameInCell.text = itemArray[indexPath.row].name
         cell.buyPriceInCell.text = "₩ \(itemArray[indexPath.row].price)"
         
@@ -48,7 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     func configureUI() {
         
         bottomTableView.dataSource = self
-        bottomTableView.rowHeight = 18
+        bottomTableView.rowHeight = 22
         
         cancelButton.setTitle("취 소", for: .normal)
         cancelButton.layer.cornerRadius = 18
