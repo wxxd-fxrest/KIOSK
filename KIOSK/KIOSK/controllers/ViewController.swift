@@ -52,16 +52,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         let productBtns: [UIButton] = [allButton, macBookButton, iMacButton, macMiniButton]
       
         for button in productBtns {
-            if button == sender {
-                button.backgroundColor = .black // 선택된 버튼은 검은색으로 변경됨
-            } else {
-                button.backgroundColor = .white // 나머지 버튼은 흰색으로 변경됨
-            }
+            button.backgroundColor = UIColor.white
+            button.setTitleColor(UIColor.black, for: .normal)
         }
+        
+        sender.backgroundColor = UIColor.black
+        sender.setTitleColor(UIColor.white, for: .normal)
     }
     
-    
-    
+
     
     // 임시 데이터
     var itemArray: [appleItem] = [
