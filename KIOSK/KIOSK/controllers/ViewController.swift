@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
     
+    @IBOutlet weak var bottomView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -75,6 +77,12 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     // 초기 설정
     func configureUI() {
+        
+        
+        view.backgroundColor = .lightGray
+        
+        bottomView.backgroundColor = .lightGray
+        bottomView.layer.cornerRadius = 10
         
         bottomTableView.dataSource = self
         bottomTableView.rowHeight = 32
