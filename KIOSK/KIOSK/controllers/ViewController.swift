@@ -8,6 +8,50 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
+
+    // 대분류 버튼을 눌렀을 때 실행되는 동작들
+    @IBAction func macButtonTapped(_ sender: UIButton) {
+        macButton.backgroundColor = .white // 배경 컬러 반전
+        macLabel.textColor = .black
+        // 텍스트 컬러 반전
+    }
+    
+    @IBAction func iPhoneButtonTapped(_ sender: UIButton) {
+        iPhoneButton.backgroundColor = .black
+        iPhoneLabel.textColor = .white
+    }
+    
+
+    @IBAction func iPadButtonTapped(_ sender: UIButton) {
+        iPadButton.backgroundColor = .black
+        iPadLabel.textColor = .white
+    }
+    
+    
+    @IBAction func watchButtonTapped(_ sender: UIButton) {
+        watchButton.backgroundColor = .black
+        watchLabel.textColor = .white
+        
+    }
+    
+    @IBOutlet weak var macButton: UIButton!
+    @IBOutlet weak var iPhoneButton: UIButton!
+    @IBOutlet weak var iPadButton: UIButton!
+    @IBOutlet weak var watchButton: UIButton!
+    
+    @IBOutlet weak var macLabel: UILabel!
+    @IBOutlet weak var iPhoneLabel: UILabel!
+    @IBOutlet weak var iPadLabel: UILabel!
+    @IBOutlet weak var watchLabel: UILabel!
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // 임시 데이터
     var itemArray: [appleItem] = [
@@ -16,21 +60,25 @@ class ViewController: UIViewController, UITableViewDataSource {
     ]
     
     @IBOutlet weak var bottomTableView: UITableView!
-    
-    
-    
+
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureUI()
+
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemArray.count
+    return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
