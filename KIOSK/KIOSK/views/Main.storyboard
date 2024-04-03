@@ -128,7 +128,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <segue destination="ccz-qU-YM9" kind="show" id="2tM-9y-IMu"/>
+                                            <segue destination="ccz-qU-YM9" kind="show" identifier="showSecondViewController" id="2tM-9y-IMu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -221,7 +221,8 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsQ-sh-c1g">
                                                                 <rect key="frame" x="10" y="10" width="32" height="32"/>
-                                                                <color key="backgroundColor" name="StarLightColor"/>
+                                                                <color key="backgroundColor" red="0.2941176593" green="0.52941179279999995" blue="0.71372550729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="StarLightColor"/>
                                                             </view>
                                                         </subviews>
                                                         <color key="backgroundColor" name="PageBackgroundColor"/>
@@ -259,7 +260,8 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2x-M1-eVW">
                                                                 <rect key="frame" x="9.9999999999999858" y="10" width="32" height="32"/>
-                                                                <color key="backgroundColor" name="SilverColor"/>
+                                                                <color key="backgroundColor" red="0.2941176593" green="0.52941179279999995" blue="0.71372550729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="SilverColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="32" id="BnC-Cf-vqR"/>
                                                                     <constraint firstAttribute="width" constant="32" id="Xz5-wY-R4i"/>
@@ -299,7 +301,8 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP0-xB-WO1">
                                                                 <rect key="frame" x="10" y="10" width="32" height="32"/>
-                                                                <color key="backgroundColor" name="SpaceGrayColor"/>
+                                                                <color key="backgroundColor" red="0.2941176593" green="0.52941179279999995" blue="0.71372550729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="SpaceGrayColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="32" id="ghS-bS-ZRU"/>
                                                                     <constraint firstAttribute="width" constant="32" id="p2z-e7-pll"/>
@@ -339,7 +342,8 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a56-Z7-MNP">
                                                                 <rect key="frame" x="10" y="10" width="32" height="32"/>
-                                                                <color key="backgroundColor" name="MidnightColor"/>
+                                                                <color key="backgroundColor" red="0.2941176593" green="0.52941179279999995" blue="0.71372550729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="MidnightColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="32" id="ezo-xJ-Z9S"/>
                                                                     <constraint firstAttribute="height" constant="32" id="gUG-4o-PFQ"/>
@@ -398,16 +402,26 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" image="plus" catalog="system"/>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POA-JS-hhu">
+                                                <rect key="frame" x="71" y="11" width="10" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" name="RoundBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="POA-JS-hhu" firstAttribute="centerX" secondItem="905-1S-Yed" secondAttribute="centerX" id="3hk-Cq-Tem"/>
+                                            <constraint firstItem="POA-JS-hhu" firstAttribute="centerY" secondItem="905-1S-Yed" secondAttribute="centerY" id="8DX-xy-EFT"/>
                                             <constraint firstItem="9NB-wL-GRp" firstAttribute="centerY" secondItem="905-1S-Yed" secondAttribute="centerY" id="8aj-Fz-Urp"/>
                                             <constraint firstItem="IVC-lL-Z93" firstAttribute="centerY" secondItem="905-1S-Yed" secondAttribute="centerY" id="9HW-mS-LW4"/>
+                                            <constraint firstItem="POA-JS-hhu" firstAttribute="leading" secondItem="9NB-wL-GRp" secondAttribute="trailing" constant="33" id="IY8-2C-1rY"/>
                                             <constraint firstItem="IVC-lL-Z93" firstAttribute="top" secondItem="905-1S-Yed" secondAttribute="top" constant="6" id="Ik5-QF-1tL"/>
                                             <constraint firstAttribute="trailing" secondItem="IVC-lL-Z93" secondAttribute="trailing" constant="8" id="K2D-44-psb"/>
                                             <constraint firstAttribute="height" constant="42" id="VjH-GB-fw5"/>
                                             <constraint firstItem="9NB-wL-GRp" firstAttribute="top" secondItem="905-1S-Yed" secondAttribute="top" constant="6" id="ZYX-y9-Dga"/>
                                             <constraint firstItem="9NB-wL-GRp" firstAttribute="leading" secondItem="905-1S-Yed" secondAttribute="leading" constant="8" id="dKp-WY-gXi"/>
+                                            <constraint firstItem="POA-JS-hhu" firstAttribute="top" secondItem="905-1S-Yed" secondAttribute="top" constant="11" id="p2b-tI-53K"/>
                                             <constraint firstAttribute="width" constant="152" id="z7a-D5-2Sb"/>
                                         </constraints>
                                     </view>
@@ -422,6 +436,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="장바구니 담기"/>
+                                        <connections>
+                                            <action selector="basketButtonPressed:" destination="ccz-qU-YM9" eventType="touchUpInside" id="8GU-ZQ-X3t"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -460,8 +477,10 @@
                     <navigationItem key="navigationItem" id="2bw-fK-93b"/>
                     <connections>
                         <outlet property="BasketButton" destination="yDg-5i-vVO" id="JMv-CG-7uk"/>
+                        <outlet property="QuantityLabel" destination="POA-JS-hhu" id="3hx-cq-mQA"/>
                         <outlet property="bottomModalView" destination="c7L-A5-Ru4" id="7MS-cc-t5P"/>
                         <outlet property="colorSelectUILabel" destination="W92-pB-iIJ" id="EtD-4F-Wwa"/>
+                        <outlet property="itemImage" destination="rJa-Zr-bdK" id="Mpy-VS-gex"/>
                         <outlet property="midnightBackView" destination="6az-bQ-fdC" id="e37-NE-0iR"/>
                         <outlet property="midnightView" destination="a56-Z7-MNP" id="Ysg-XI-fxp"/>
                         <outlet property="minusButton" destination="9NB-wL-GRp" id="xu8-o1-Sl3"/>
@@ -508,9 +527,6 @@
         <namedColor name="BasicColor">
             <color red="0.14100000262260437" green="0.14100000262260437" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="MidnightColor">
-            <color red="0.1843137443" green="0.2117646933" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="PageBackgroundColor">
             <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -520,14 +536,8 @@
         <namedColor name="RoundBackgroundColor">
             <color red="0.89800000190734863" green="0.89800000190734863" blue="0.89800000190734863" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="SilverColor">
-            <color red="0.89019608500000003" green="0.89411771299999998" blue="0.90196079019999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="SpaceGrayColor">
             <color red="0.49000000953674316" green="0.49399998784065247" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="StarLightColor">
-            <color red="0.93333333730000001" green="0.89803922179999995" blue="0.83137255909999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

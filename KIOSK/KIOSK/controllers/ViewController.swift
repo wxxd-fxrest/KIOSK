@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, SecondViewControllerDelegate {
     
     // 임시 데이터
     var itemArray: [appleItem] = [
@@ -15,11 +15,12 @@ class ViewController: UIViewController, UITableViewDataSource {
         appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Green", count: 2)
     ]
     
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+    }
+
+    
     @IBOutlet weak var bottomTableView: UITableView!
-    
-    
-    
-    
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
@@ -27,6 +28,14 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSecondViewController" {
+            if let secondVC = segue.destination as? SecondViewController {
+                secondVC.delegate = self
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
