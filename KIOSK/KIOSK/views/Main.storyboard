@@ -156,6 +156,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MO8-WZ-Cc9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ru-BJ-YFk">
                                         <rect key="frame" x="93.666666666666686" y="143" width="71" height="35"/>
@@ -187,6 +190,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wRp-YJ-PRN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-m9-vcQ">
                                         <rect key="frame" x="176.33333333333334" y="143" width="71" height="35"/>
@@ -224,6 +230,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SL1-G6-udO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxM-Jf-XxY" userLabel="Mac Mini">
                                         <rect key="frame" x="258.66666666666669" y="143" width="71" height="35"/>
@@ -263,6 +272,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qR8-bR-e5j"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mac" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uY7-ha-7PQ">
                                         <rect key="frame" x="37" y="110" width="21" height="15"/>
@@ -432,14 +444,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allButton" destination="xrk-EJ-sJi" id="GoI-G9-aIP"/>
                         <outlet property="bottomTableView" destination="ES0-LT-c33" id="5hG-uF-eTe"/>
                         <outlet property="cancelButton" destination="QaY-Zy-U5B" id="FHV-3g-4V8"/>
+                        <outlet property="iMacButton" destination="Xaf-m9-vcQ" id="aQA-5C-Gow"/>
                         <outlet property="iPadButton" destination="0lK-CD-YbL" id="hIz-Eo-erF"/>
                         <outlet property="iPadLabel" destination="nhg-LD-vwV" id="VcD-RH-NKZ"/>
                         <outlet property="iPhoneButton" destination="vs5-A3-WO8" id="aqC-Ze-Y87"/>
                         <outlet property="iPhoneLabel" destination="vQz-ZP-6fm" id="Ble-Lu-TO9"/>
+                        <outlet property="macBookButton" destination="0Ru-BJ-YFk" id="QNB-DB-8bW"/>
                         <outlet property="macButton" destination="2jL-is-YD1" id="Y8h-Bq-Bft"/>
                         <outlet property="macLabel" destination="uY7-ha-7PQ" id="HTN-FE-CYh"/>
+                        <outlet property="macMiniButton" destination="nxM-Jf-XxY" id="NuX-xe-UaQ"/>
                         <outlet property="payButton" destination="sIR-5P-GxQ" id="pIK-xW-49s"/>
                         <outlet property="totalPrice" destination="eVe-RU-jx5" id="Qyb-r7-mbs"/>
                         <outlet property="watchButton" destination="vuU-qK-bSN" id="tlT-FE-kgn"/>
@@ -479,7 +495,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

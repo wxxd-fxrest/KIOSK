@@ -8,26 +8,28 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
-
     
+    // 상단 4개의 버튼 카테고라이징 메소드
     @IBAction func didTappedCategoryBtn(_ sender: UIButton) {
         
         //버튼과 레이블을 튜플로 묶은것을 변수로 저장
         let buttonLabelPairs: [(UIButton, UILabel)] = [(macButton,macLabel),(iPhoneButton,iPhoneLabel),(iPadButton,iPadLabel),(watchButton,watchLabel)]
         
+        // 버튼과 레이블을 흰색과 검은색으로 초기화
         buttonLabelPairs.forEach {
             $0.0.backgroundColor = .white
             $0.0.tintColor = .black
             $0.1.textColor = .black
         }
         
+        // 선택된 버튼과 레이블의 튜플을 필터링하여 가져오기
         let selectedButtonLabelPair = buttonLabelPairs.filter { $0.0 == sender }
-        
+       
+        // 선택된 버튼과 레이블의 색상을 검은색과 흰색으로 변경
         selectedButtonLabelPair[0].0.backgroundColor = .black
         selectedButtonLabelPair[0].0.tintColor = .white
         selectedButtonLabelPair[0].1.textColor = .white
     }
-    
     
     @IBOutlet weak var macButton: UIButton!
     @IBOutlet weak var iPhoneButton: UIButton!
@@ -38,6 +40,26 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var iPhoneLabel: UILabel!
     @IBOutlet weak var iPadLabel: UILabel!
     @IBOutlet weak var watchLabel: UILabel!
+    
+    @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var macBookButton: UIButton!
+    @IBOutlet weak var iMacButton: UIButton!
+    @IBOutlet weak var macMiniButton: UIButton!
+    
+    
+    // 하단 4개의 버튼 카테고라이징 메소드
+    @IBAction func didTappedProductBtn(_ sender: UIButton) {
+        let productBtns: [UIButton] = [allButton, macBookButton, iMacButton, macMiniButton]
+      
+        for button in productBtns {
+            if button == sender {
+                button.backgroundColor = .black // 선택된 버튼은 검은색으로 변경됨
+            } else {
+                button.backgroundColor = .white // 나머지 버튼은 흰색으로 변경됨
+            }
+        }
+    }
+    
     
     
     
@@ -59,17 +81,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        topUI()
-     }
-    
-     func topUI() {
-     // macButton.backgroundColor = .white
-     // macLabel.textColor = .black
-         iPadButton.backgroundColor = .white
-         iPadLabel.textColor = .black
+
          
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
