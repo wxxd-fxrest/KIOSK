@@ -9,30 +9,25 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
 
-    // 대분류 버튼을 눌렀을 때 실행되는 동작들
-    @IBAction func macButtonTapped(_ sender: UIButton) {
-        macButton.backgroundColor = .white // 배경 컬러 반전
-        macLabel.textColor = .black
-        // 텍스트 컬러 반전
-    }
     
-    @IBAction func iPhoneButtonTapped(_ sender: UIButton) {
-        iPhoneButton.backgroundColor = .black
-        iPhoneLabel.textColor = .white
-    }
-    
-
-    @IBAction func iPadButtonTapped(_ sender: UIButton) {
-        iPadButton.backgroundColor = .black
-        iPadLabel.textColor = .white
-    }
-    
-    
-    @IBAction func watchButtonTapped(_ sender: UIButton) {
-        watchButton.backgroundColor = .black
-        watchLabel.textColor = .white
+    @IBAction func didTappedCategoryBtn(_ sender: UIButton) {
         
+        //버튼과 레이블을 튜플로 묶은것을 변수로 저장
+        let buttonLabelPairs: [(UIButton, UILabel)] = [(macButton,macLabel),(iPhoneButton,iPhoneLabel),(iPadButton,iPadLabel),(watchButton,watchLabel)]
+        
+        buttonLabelPairs.forEach {
+            $0.0.backgroundColor = .white
+            $0.0.tintColor = .black
+            $0.1.textColor = .black
+        }
+        
+        let selectedButtonLabelPair = buttonLabelPairs.filter { $0.0 == sender }
+        
+        selectedButtonLabelPair[0].0.backgroundColor = .black
+        selectedButtonLabelPair[0].0.tintColor = .white
+        selectedButtonLabelPair[0].1.textColor = .white
     }
+    
     
     @IBOutlet weak var macButton: UIButton!
     @IBOutlet weak var iPhoneButton: UIButton!
@@ -43,13 +38,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var iPhoneLabel: UILabel!
     @IBOutlet weak var iPadLabel: UILabel!
     @IBOutlet weak var watchLabel: UILabel!
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -70,9 +58,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-
+        topUI()
+     }
+    
+     func topUI() {
+     // macButton.backgroundColor = .white
+     // macLabel.textColor = .black
+         iPadButton.backgroundColor = .white
+         iPadLabel.textColor = .black
+         
         
         
     }
