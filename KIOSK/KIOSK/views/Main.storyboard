@@ -156,35 +156,47 @@
                                                                 <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="4S0-Wn-7IF"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g11-VL-XYp">
-                                                            <rect key="frame" x="177" y="131" width="130" height="40"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tti-Sc-lmB">
+                                                            <rect key="frame" x="44" y="123.99999999999999" width="130" height="34.333333333333329"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="5lI-dX-4OH"/>
-                                                                <constraint firstAttribute="width" constant="130" id="c90-RY-3GB"/>
+                                                                <constraint firstAttribute="width" constant="130" id="Qjt-WL-g9F"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="filled" title="detail"/>
+                                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="detail"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="detail" titleAlignment="center"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tti-Sc-lmB">
-                                                            <rect key="frame" x="63" y="124" width="75" height="35"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-4R-g68">
+                                                            <rect key="frame" x="182" y="122.99999999999999" width="130" height="34.333333333333329"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="130" id="S0I-7R-fLR"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="xbk-CT-RD2"/>
+                                                            </constraints>
+                                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="detail"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="detail" titleAlignment="center"/>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="2CR-Vm-AVO" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" constant="5" id="4lm-DM-dKb"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="tM2-4R-g68" secondAttribute="trailing" constant="9" id="5kX-GU-ahS"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="qhS-5O-c71" secondAttribute="trailing" constant="30" id="7Ys-8C-5Ln"/>
-                                                        <constraint firstItem="g11-VL-XYp" firstAttribute="top" secondItem="qhS-5O-c71" secondAttribute="bottom" constant="15" id="Fg7-dW-pt5"/>
+                                                        <constraint firstItem="Tti-Sc-lmB" firstAttribute="top" secondItem="2CR-Vm-AVO" secondAttribute="bottom" constant="8" id="WjV-4H-rbc"/>
                                                         <constraint firstItem="2CR-Vm-AVO" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="30" id="XrW-Oq-hYh"/>
+                                                        <constraint firstItem="Tti-Sc-lmB" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="24" id="e12-yl-qni"/>
                                                         <constraint firstItem="qhS-5O-c71" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" constant="5" id="iKk-Ga-reT"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="g11-VL-XYp" secondAttribute="trailing" constant="14" id="x0D-Vd-8ou"/>
-                                                        <constraint firstItem="g11-VL-XYp" firstAttribute="bottom" secondItem="eSe-hc-3mQ" secondAttribute="bottomMargin" constant="5" id="xYu-wN-JjT"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="tM2-4R-g68" secondAttribute="bottom" constant="8.6699999999999999" id="mJt-BH-wHA"/>
+                                                        <constraint firstItem="tM2-4R-g68" firstAttribute="top" secondItem="qhS-5O-c71" secondAttribute="bottom" constant="7" id="nvn-vK-0wa"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="btnLeft" destination="2CR-Vm-AVO" id="iZV-ah-GFy"/>
+                                                    <outlet property="btnLeftDetail" destination="Tti-Sc-lmB" id="E6i-gM-Q5S"/>
                                                     <outlet property="btnRight" destination="qhS-5O-c71" id="nYc-bg-yjh"/>
+                                                    <outlet property="btnRightDetail" destination="tM2-4R-g68" id="edr-uQ-QPK"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

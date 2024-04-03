@@ -76,7 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
                 // 예제: cell의 UI 컴포넌트 구성
             
-            cell.btnRight.setTitle("", for: .normal)       // 일반 상태
+            cell.btnRight.setTitle("", for: .normal)   
             cell.btnLeft.setTitle("", for: .normal)       // 일반 상태
             // 필요한 다른 상태들에 대해서도 동일하게 적용
 
