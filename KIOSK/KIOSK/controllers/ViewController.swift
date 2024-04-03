@@ -51,11 +51,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBAction func didTappedProductBtn(_ sender: UIButton) {
         let productBtns: [UIButton] = [allButton, macBookButton, iMacButton, macMiniButton]
       
+        // 모든 배경은 흰색, 텍스트는 검은색 초기화
         for button in productBtns {
             button.backgroundColor = UIColor.white
             button.setTitleColor(UIColor.black, for: .normal)
         }
-        
+        // 선택된 버튼의 배경은 검은색, 텍스트는 흰색으로 설정
         sender.backgroundColor = UIColor.black
         sender.setTitleColor(UIColor.white, for: .normal)
     }
