@@ -17,7 +17,7 @@ class SecondViewController: UIViewController {
     
     // MARK: - Data
     var itemArray: [appleItem] = [
-        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "", count: 1),
+        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "StarLightColor", count: 1),
     ]
     
     
@@ -202,7 +202,30 @@ class SecondViewController: UIViewController {
     }
 
     @objc func colorViewTapped(_ sender: UITapGestureRecognizer) {
-        guard let selectedColorName = sender.view?.accessibilityIdentifier else {
+        guard let selectedColorView = sender.view else {
+            return
+        }
+        
+        resetBorderForAllColorViews()
+        
+        switch selectedColorView {
+        case starlightView:
+            starlightBackView.layer.borderWidth = 1.0
+            starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+        case silverView:
+            silverBackVIew.layer.borderWidth = 1.0
+            silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+        case spaceGrayView:
+            spaceGrayBackView.layer.borderWidth = 1.0
+            spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+        case midnightView:
+            midnightBackView.layer.borderWidth = 1.0
+            midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+        default:
+            break
+        }
+
+        guard let selectedColorName = selectedColorView.accessibilityIdentifier else {
             return
         }
         print("Item with color \(selectedColorName)")
@@ -212,7 +235,15 @@ class SecondViewController: UIViewController {
             print("Item with color \(selectedColorName) updated: \(itemArray[index])")
         }
     }
-    
+
+
+    func resetBorderForAllColorViews() {
+        starlightBackView.layer.borderWidth = 0
+        silverBackVIew.layer.borderWidth = 0
+        spaceGrayBackView.layer.borderWidth = 0
+        midnightBackView.layer.borderWidth = 0
+    }
+
     
     // MARK: - Quantity change
     @objc func decrementQuantity() {
