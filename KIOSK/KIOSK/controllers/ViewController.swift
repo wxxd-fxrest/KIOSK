@@ -258,22 +258,22 @@ class ViewController: UIViewController, UITableViewDataSource {
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    // 피커뷰의 컴포넌트 수를 반환합니다.
+    // 피커뷰의 컴포넌트 수
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    // 피커뷰의 행 수를 반환합니다.
+    // 피커뷰의 행 수
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10 // 주문 수량은 1부터 10까지
+        return 10
     }
     
-    // 각 행에 해당하는 타이틀을 반환합니다.
+    // 각 행에 해당하는 타이틀을 반환
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row + 1)" // 1부터 10까지의 수량을 문자열로 반환
     }
     
-    // 피커뷰에서 선택된 행의 값을 가져와서 주문 수량을 업데이트합니다.
+    // 피커뷰에서 선택된 행의 값을 가져와서 주문 수량을 업데이트
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // 현재 선택된 셀의 인덱스를 가져옵니다.
         guard let indexPath = bottomTableView.indexPathForSelectedRow else {

@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLC-dp-GVQ">
-                                <rect key="frame" x="26" y="628" width="341" height="142"/>
+                                <rect key="frame" x="26" y="628" width="341" height="190"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="rIN-q5-2Rb">
                                         <rect key="frame" x="0.0" y="154" width="341" height="36"/>
@@ -153,7 +153,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주문 내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkk-Pt-33i">
-                                        <rect key="frame" x="7" y="4" width="59.333333333333343" height="15"/>
+                                        <rect key="frame" x="7.0000000000000036" y="4" width="59.333333333333343" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -164,7 +164,7 @@
                                     <constraint firstItem="rIN-q5-2Rb" firstAttribute="top" secondItem="eVe-RU-jx5" secondAttribute="bottom" constant="15" id="0ai-11-eZl"/>
                                     <constraint firstItem="ES0-LT-c33" firstAttribute="top" secondItem="Dkk-Pt-33i" secondAttribute="bottom" constant="15" id="0yR-65-y1K"/>
                                     <constraint firstItem="rIN-q5-2Rb" firstAttribute="leading" secondItem="WLC-dp-GVQ" secondAttribute="leading" id="3hr-ot-acC"/>
-                                    <constraint firstAttribute="bottom" secondItem="rIN-q5-2Rb" secondAttribute="bottom" constant="-48" id="8Jx-s6-Ofw"/>
+                                    <constraint firstAttribute="bottom" secondItem="rIN-q5-2Rb" secondAttribute="bottom" id="8Jx-s6-Ofw"/>
                                     <constraint firstItem="ES0-LT-c33" firstAttribute="leading" secondItem="rIN-q5-2Rb" secondAttribute="leading" id="BXP-Gs-J2i"/>
                                     <constraint firstItem="ES0-LT-c33" firstAttribute="trailing" secondItem="rIN-q5-2Rb" secondAttribute="trailing" id="Bhi-YT-WDD"/>
                                     <constraint firstItem="Dkk-Pt-33i" firstAttribute="leading" secondItem="WLC-dp-GVQ" secondAttribute="leading" constant="7" id="Dmf-uT-eyv"/>
@@ -172,7 +172,7 @@
                                     <constraint firstItem="eVe-RU-jx5" firstAttribute="top" secondItem="ES0-LT-c33" secondAttribute="bottom" constant="6" id="aJE-EE-snP"/>
                                     <constraint firstItem="Dkk-Pt-33i" firstAttribute="top" secondItem="WLC-dp-GVQ" secondAttribute="top" constant="4" id="gTz-pu-Bif"/>
                                     <constraint firstAttribute="trailing" secondItem="rIN-q5-2Rb" secondAttribute="trailing" id="tAC-iO-Exo"/>
-                                    <constraint firstAttribute="height" constant="142" id="wUd-M7-q97"/>
+                                    <constraint firstAttribute="height" constant="190" id="wUd-M7-q97"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYa-Of-LYx">
@@ -191,7 +191,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WLC-dp-GVQ" secondAttribute="trailing" constant="26" id="ek6-hI-n5m"/>
                             <constraint firstItem="iYa-Of-LYx" firstAttribute="top" secondItem="Xfv-tr-00F" secondAttribute="bottom" constant="20" id="g8A-T3-Lbg"/>
                             <constraint firstItem="WLC-dp-GVQ" firstAttribute="top" secondItem="iYa-Of-LYx" secondAttribute="bottom" constant="20" id="j7F-vC-6TL"/>
-                            <constraint firstItem="WLC-dp-GVQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-48" id="uig-a1-kmG"/>
+                            <constraint firstItem="WLC-dp-GVQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uig-a1-kmG"/>
                             <constraint firstItem="iYa-Of-LYx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="wq9-5O-yu3"/>
                         </constraints>
                     </view>
