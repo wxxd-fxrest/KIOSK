@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,16 +12,295 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppleStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KIOSK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfv-tr-00F">
                                 <rect key="frame" x="26" y="59" width="341" height="190"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleVector.png" translatesAutoresizingMaskIntoConstraints="NO" id="3MZ-wP-zCf">
+                                        <rect key="frame" x="158.66666666666666" y="5" width="24" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="5qT-l2-OFQ"/>
+                                            <constraint firstAttribute="width" constant="24" id="SAL-v7-hUn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jL-is-YD1" userLabel="Mac">
+                                        <rect key="frame" x="11.333333333333336" y="60" width="71" height="71"/>
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="AYh-7U-mby"/>
+                                            <constraint firstAttribute="height" constant="71" id="Cr2-oq-4kX"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="macVector.png" imagePlacement="top" imagePadding="7" cornerStyle="dynamic">
+                                            <backgroundConfiguration key="background" cornerRadius="10"/>
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Mac">
+                                                    <attributes>
+                                                        <font key="NSFont" size="8" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vs5-A3-WO8" userLabel="iPhone">
+                                        <rect key="frame" x="93.666666666666686" y="60" width="71" height="71"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="NLy-UA-IkI"/>
+                                            <constraint firstAttribute="height" constant="71" id="a9C-y1-Owy"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="arY-1Q-Eon"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71" id="fbX-OX-o7g"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="PhoneVector.png" imagePlacement="top">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="iPhone">
+                                                    <attributes>
+                                                        <font key="NSFont" size="8" name="Helvetica"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lK-CD-YbL" userLabel="iPad">
+                                        <rect key="frame" x="176.33333333333334" y="60" width="71" height="71"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71" id="0ez-gX-2hp"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="71" id="6Cc-bp-aoe"/>
+                                            <constraint firstAttribute="width" constant="71" id="pai-dd-Zzs"/>
+                                            <constraint firstAttribute="height" constant="71" id="v5x-kA-Um4"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="wdi-bM-uaL"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="yjO-f1-ILd"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="Tablet.png" imagePlacement="top" imagePadding="3">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="iPad">
+                                                    <attributes>
+                                                        <font key="NSFont" size="8" name="Helvetica"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuU-qK-bSN" userLabel="Watch">
+                                        <rect key="frame" x="258.66666666666669" y="60" width="71" height="71"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="Cai-O9-KqN"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="71" id="E7n-I0-IXr"/>
+                                            <constraint firstAttribute="width" constant="71" id="EFr-2o-XeK"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="Pb9-rJ-xvs"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="71" id="ed5-PQ-meV"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="lxJ-PN-UGF"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="yLu-N0-ddE"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71" id="zW6-Lr-v2M"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="watchVector.png" imagePlacement="top" imagePadding="3">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Watch">
+                                                    <attributes>
+                                                        <font key="NSFont" size="8" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrk-EJ-sJi">
+                                        <rect key="frame" x="11.333333333333336" y="143" width="71" height="35"/>
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="Znf-vr-9Yk"/>
+                                            <constraint firstAttribute="height" constant="35" id="eQE-gc-1CD"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="전체">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ru-BJ-YFk">
+                                        <rect key="frame" x="93.666666666666686" y="143" width="71" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="9Ns-Os-lMk"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="JPF-N3-gG1"/>
+                                            <constraint firstAttribute="height" constant="35" id="MFb-iy-Dv6"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="ZpF-gm-LdL"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="aWJ-NH-aa3"/>
+                                            <constraint firstAttribute="width" constant="71" id="ga1-7q-kyU"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="MacBook">
+                                                    <attributes>
+                                                        <font key="NSFont" size="10" name="Helvetica"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-m9-vcQ">
+                                        <rect key="frame" x="176.33333333333334" y="143" width="71" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="92Z-6S-dKt"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="Jdc-gF-33h"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="T5e-4Q-2FU"/>
+                                            <constraint firstAttribute="height" constant="35" id="WpI-Rd-Rzg"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="jEe-PF-qZy"/>
+                                            <constraint firstAttribute="width" constant="71" id="sbU-EM-lHK"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="i">
+                                                    <attributes>
+                                                        <font key="NSFont" size="10" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Mac">
+                                                    <attributes>
+                                                        <font key="NSFont" size="10" name="Helvetica"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxM-Jf-XxY" userLabel="Mac Mini">
+                                        <rect key="frame" x="258.66666666666669" y="143" width="71" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="0oX-qC-3D3"/>
+                                            <constraint firstAttribute="width" constant="71" id="Cgg-Lx-g2s"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="Xs4-Jv-UmM"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="ePh-yQ-t19"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="qNM-4w-7cn"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="71" id="qRm-wP-TFt"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="rgQ-lS-YRQ"/>
+                                            <constraint firstAttribute="height" constant="35" id="yeL-71-Ed3"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Mac">
+                                                    <attributes>
+                                                        <font key="NSFont" size="10" name="Helvetica"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=" Mini">
+                                                    <attributes>
+                                                        <font key="NSFont" size="10" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
+                                    <constraint firstItem="vuU-qK-bSN" firstAttribute="top" secondItem="Xfv-tr-00F" secondAttribute="top" constant="60" id="7c2-Ye-TrI"/>
                                     <constraint firstAttribute="height" constant="190" id="9ES-Pb-els"/>
+                                    <constraint firstItem="3MZ-wP-zCf" firstAttribute="centerX" secondItem="Xfv-tr-00F" secondAttribute="centerX" id="BTO-Yn-8cZ"/>
+                                    <constraint firstItem="2jL-is-YD1" firstAttribute="top" secondItem="Xfv-tr-00F" secondAttribute="top" constant="60" id="DoS-Hd-Wmg"/>
+                                    <constraint firstItem="xrk-EJ-sJi" firstAttribute="leading" secondItem="Xfv-tr-00F" secondAttribute="leading" constant="11.4" id="JBk-RO-mdj"/>
+                                    <constraint firstItem="0lK-CD-YbL" firstAttribute="leading" secondItem="vs5-A3-WO8" secondAttribute="trailing" constant="11.4" id="NTY-8r-xZF"/>
+                                    <constraint firstItem="3MZ-wP-zCf" firstAttribute="top" secondItem="Xfv-tr-00F" secondAttribute="top" constant="5" id="PT7-Xu-Xni"/>
+                                    <constraint firstItem="Xaf-m9-vcQ" firstAttribute="top" secondItem="0lK-CD-YbL" secondAttribute="bottom" constant="12" id="Rse-H5-N00"/>
+                                    <constraint firstItem="vuU-qK-bSN" firstAttribute="leading" secondItem="0lK-CD-YbL" secondAttribute="trailing" constant="11.4" id="VLm-M8-k0o"/>
+                                    <constraint firstItem="nxM-Jf-XxY" firstAttribute="leading" secondItem="Xaf-m9-vcQ" secondAttribute="trailing" constant="11.4" id="awM-vN-LCW"/>
+                                    <constraint firstItem="2jL-is-YD1" firstAttribute="leading" secondItem="Xfv-tr-00F" secondAttribute="leading" constant="11.4" id="dIE-AQ-NxO"/>
+                                    <constraint firstItem="0Ru-BJ-YFk" firstAttribute="top" secondItem="vs5-A3-WO8" secondAttribute="bottom" constant="12" id="ia6-5B-u4B"/>
+                                    <constraint firstItem="Xaf-m9-vcQ" firstAttribute="leading" secondItem="0Ru-BJ-YFk" secondAttribute="trailing" constant="11.4" id="k9h-V0-kzm"/>
+                                    <constraint firstItem="0lK-CD-YbL" firstAttribute="top" secondItem="Xfv-tr-00F" secondAttribute="top" constant="60" id="kQ2-bE-DSf"/>
+                                    <constraint firstItem="0Ru-BJ-YFk" firstAttribute="leading" secondItem="xrk-EJ-sJi" secondAttribute="trailing" constant="11.4" id="kj5-Sh-wRM"/>
+                                    <constraint firstItem="vs5-A3-WO8" firstAttribute="leading" secondItem="2jL-is-YD1" secondAttribute="trailing" constant="11.4" id="mC0-2d-9a5"/>
+                                    <constraint firstItem="xrk-EJ-sJi" firstAttribute="top" secondItem="2jL-is-YD1" secondAttribute="bottom" constant="12" id="qjY-c6-knn"/>
+                                    <constraint firstItem="vs5-A3-WO8" firstAttribute="top" secondItem="Xfv-tr-00F" secondAttribute="top" constant="60" id="tkg-1k-Ksd"/>
+                                    <constraint firstItem="nxM-Jf-XxY" firstAttribute="top" secondItem="vuU-qK-bSN" secondAttribute="bottom" constant="12" id="urb-lW-NOA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLC-dp-GVQ">
@@ -53,11 +332,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomCell" id="UWZ-pY-7Zi" userLabel="BottomCell" customClass="BottomCell" customModule="AppleStore" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="341" height="44.666667938232422"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomCell" id="UWZ-pY-7Zi" userLabel="BottomCell" customClass="BottomCell" customModule="KIOSK" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="341" height="43.666667938232422"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWZ-pY-7Zi" id="5kJ-X5-BC2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="44.666667938232422"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElN-pw-MJd">
@@ -166,6 +445,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PhoneVector.png" width="36" height="33"/>
+        <image name="Tablet.png" width="36" height="33"/>
+        <image name="appleVector.png" width="24" height="28"/>
+        <image name="macVector.png" width="36" height="27"/>
+        <image name="watchVector.png" width="23" height="27"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
