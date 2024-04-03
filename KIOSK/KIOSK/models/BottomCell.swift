@@ -9,6 +9,8 @@ import UIKit
 
 class BottomCell: UITableViewCell {
     
+    var deleteHandler: (() -> Void)?
+    
     @IBOutlet weak var buyColorInCell: UIImageView!
     @IBOutlet weak var buyNameInCell: UILabel!
     @IBOutlet weak var buyCountInCell: UIButton!
@@ -23,6 +25,8 @@ class BottomCell: UITableViewCell {
         buyColorInCell.layer.cornerRadius = buyColorInCell.frame.size.width / 2
         buyColorInCell.clipsToBounds = true
         buyCountInCell.tintColor = .black
+        buyCountInCell.backgroundColor = .lightGray
+        buyCountInCell.layer.cornerRadius = 5
         
     }
     
