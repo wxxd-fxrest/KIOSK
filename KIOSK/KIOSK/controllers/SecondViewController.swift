@@ -38,8 +38,8 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var plusButton: UIButton!
     
     // MARK: - Outlet | Basket Button
-    @IBOutlet weak var BasketButton: UIView!
-    
+    @IBOutlet weak var BasketButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,6 @@ class SecondViewController: UIViewController {
         if let backgroundColor = UIColor(named: "PageBackgroundColor") {
             view.backgroundColor = backgroundColor
         } else {
-            // Fallback color if the named color is not found
             view.backgroundColor = UIColor.white
         }
         
@@ -58,11 +57,10 @@ class SecondViewController: UIViewController {
         // MARK: - Image Set
         RoundbackgroundView(roundBackgroundView)
         
-        
         // MARK: - Color Buttons
         makeViewRound(starlightBackView)
         makeViewRound(starlightView)
-        
+
         makeViewRound(silverBackVIew)
         makeViewRound(silverView)
         
@@ -72,6 +70,13 @@ class SecondViewController: UIViewController {
         makeViewRound(midnightBackView)
         makeViewRound(midnightView)
         
+        // MARK: - Color Buttons Shadow
+        addShadow(to: starlightView)
+        addShadow(to: silverView)
+        addShadow(to: spaceGrayView)
+        addShadow(to: midnightView)
+
+        // MARK: - Bottom Buttons
         makeViewRound(minusButton)
         makeViewRound(plusButton)
 
@@ -80,7 +85,7 @@ class SecondViewController: UIViewController {
         
         quantityBackView.layer.cornerRadius = 20
         BasketButton.layer.cornerRadius = 20
-
+    
         // MARK: - Bottom View
         bottomViewRound(bottomModalView, withRadius: 30.0)
         view.addSubview(bottomModalView)
@@ -96,22 +101,28 @@ class SecondViewController: UIViewController {
     
     // MARK: - Image Set Controller
     func RoundbackgroundView(_ view: UIView) {
-        // Make the view round
         view.layer.cornerRadius = view.frame.size.width / 2
         view.clipsToBounds = true
     }
     
     // MARK: - Bottom View Controller
     func bottomViewRound(_ view: UIView, withRadius radius: CGFloat) {
-        // Make the view round with the specified radius
         view.layer.cornerRadius = radius
         view.clipsToBounds = true
     }
     
     // MARK: - Color Buttons Controller
     func makeViewRound(_ view: UIView) {
-        // Make the view round
         view.layer.cornerRadius = view.frame.size.width / 2
         view.clipsToBounds = true
+    }
+
+    // MARK: - Button Shadow
+    func addShadow(to view: UIView) {
+        view.layer.shadowColor = UIColor.black.cgColor 
+        view.layer.masksToBounds = false
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 1
+        view.layer.shadowOpacity = 0.6
     }
 }
