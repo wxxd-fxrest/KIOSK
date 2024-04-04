@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B37A7EA2BBE26B80069C04D /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B37A7E92BBE26B80069C04D /* SecondStoryboard.storyboard */; };
 		0BF69A8F2BBBB72200B572A8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF69A8E2BBBB72200B572A8 /* SecondViewController.swift */; };
 		52A7AF552BBBA2FE00DABD4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7AF542BBBA2FE00DABD4E /* AppDelegate.swift */; };
 		52A7AF572BBBA2FE00DABD4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7AF562BBBA2FE00DABD4E /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B37A7E92BBE26B80069C04D /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		0BF69A8E2BBBB72200B572A8 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		52A7AF512BBBA2FE00DABD4E /* KIOSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KIOSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A7AF542BBBA2FE00DABD4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				52A7AF682BBBA39300DABD4E /* Main.storyboard */,
 				52A7AF5F2BBBA2FF00DABD4E /* LaunchScreen.storyboard */,
+				0B37A7E92BBE26B80069C04D /* SecondStoryboard.storyboard */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				52A7AF692BBBA39300DABD4E /* Main.storyboard in Resources */,
 				52A7AF712BBBA3BE00DABD4E /* Assets.xcassets in Resources */,
 				52A7AF612BBBA2FF00DABD4E /* LaunchScreen.storyboard in Resources */,
+				0B37A7EA2BBE26B80069C04D /* SecondStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
