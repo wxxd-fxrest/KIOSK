@@ -47,6 +47,9 @@
                                                 <integer key="value" value="7"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedCategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0j-Ef-ede"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukn-C1-Qb9" userLabel="iPhone">
                                         <rect key="frame" x="93.666666666666657" y="60" width="71" height="71"/>
@@ -69,6 +72,9 @@
                                                 <integer key="value" value="7"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedCategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wie-pP-aXX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukS-We-O2S" userLabel="iPad">
                                         <rect key="frame" x="176.33333333333334" y="60" width="71" height="71"/>
@@ -92,6 +98,9 @@
                                                 <integer key="value" value="7"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedCategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wi6-KR-bTk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="si5-WF-5vW" userLabel="Watch">
                                         <rect key="frame" x="258.66666666666669" y="60" width="71" height="71"/>
@@ -117,6 +126,9 @@
                                                 <integer key="value" value="7"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedCategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZj-Ol-k9m"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4k-of-MIo">
                                         <rect key="frame" x="11.333333333333336" y="143" width="71" height="35"/>
@@ -136,6 +148,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kqV-UB-sin"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuJ-iM-VG0">
                                         <rect key="frame" x="93.666666666666657" y="143" width="71" height="35"/>
@@ -151,7 +166,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="MacBook">
-                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksBounds" value="YES"/>
@@ -159,6 +174,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9S-dD-M6T"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-be-VA7">
                                         <rect key="frame" x="176.33333333333334" y="143" width="71" height="35"/>
@@ -182,6 +200,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rnv-4T-sjg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHO-Ta-cpb" userLabel="Mac Mini">
                                         <rect key="frame" x="258.66666666666669" y="143" width="71" height="35"/>
@@ -207,6 +228,9 @@
                                                 <integer key="value" value="17"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTappedProductBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sKo-8M-WGb"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mac" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-cx-rVv">
                                         <rect key="frame" x="37" y="110" width="21" height="15"/>
@@ -462,11 +486,23 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allButton" destination="P4k-of-MIo" id="mJw-ze-nk0"/>
                         <outlet property="bottomTableView" destination="ES0-LT-c33" id="5hG-uF-eTe"/>
                         <outlet property="cancelButton" destination="QaY-Zy-U5B" id="FHV-3g-4V8"/>
+                        <outlet property="iMacButton" destination="tGl-be-VA7" id="tc5-yY-nMx"/>
+                        <outlet property="iPadButton" destination="ukS-We-O2S" id="LYJ-AL-d3q"/>
+                        <outlet property="iPadLabel" destination="ZQ3-jD-3A1" id="zKm-Nv-i8m"/>
+                        <outlet property="iPhoneButton" destination="Ukn-C1-Qb9" id="txB-Es-rGy"/>
+                        <outlet property="iPhoneLabel" destination="Nd7-ez-17b" id="2qV-tn-i6S"/>
+                        <outlet property="macBookButton" destination="JuJ-iM-VG0" id="cC4-eF-gsf"/>
+                        <outlet property="macButton" destination="Pmo-t9-yaa" id="cBi-4n-1dT"/>
+                        <outlet property="macLabel" destination="XrC-cx-rVv" id="doQ-7N-JPl"/>
+                        <outlet property="macMiniButton" destination="gHO-Ta-cpb" id="Ifd-WE-aNi"/>
                         <outlet property="middleTableView" destination="Byy-gt-9PR" id="3hz-er-GOE"/>
                         <outlet property="payButton" destination="sIR-5P-GxQ" id="pIK-xW-49s"/>
                         <outlet property="totalPrice" destination="eVe-RU-jx5" id="Qyb-r7-mbs"/>
+                        <outlet property="watchButton" destination="si5-WF-5vW" id="mIu-lp-uyr"/>
+                        <outlet property="watchLabel" destination="2V7-Mm-Gra" id="vdS-8L-d6w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

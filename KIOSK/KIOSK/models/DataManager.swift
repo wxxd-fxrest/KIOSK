@@ -10,8 +10,25 @@ import Foundation
 class DataManager {
     var itemArray: [appleItem] = []
     var Mac = [
-        "MacBook","iMac","Mac Mini"
+        "MacBook",
+        "iMac",
+        "Mac Mini"
     ]
+    var iPhone = [
+        "iPhone 15 Pro",
+        "iPhone 15",
+        "iPhone SE"
+    ]
+    var iPad = [
+        "iPad Air",
+        "iPad",
+        "iPad Pro",
+    ]
+    var watch = [
+        "Series 9",
+        "Ultra 2"
+    ]
+    
     
     func makeItemData() {
         var count = 0;
@@ -34,7 +51,6 @@ class DataManager {
         // iPad
         let ipadColors = ["Starlight", "Silver", "Space Gray", "Midnight"]
         let ipads = [
-            ("iPad Mini", 769_000),
             ("iPad Air", 929_000),
             ("iPad", 679_000),
             ("iPad Pro", 1_249_000)

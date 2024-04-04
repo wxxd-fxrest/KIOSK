@@ -10,8 +10,77 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     
     
-    //나연님 코드
+    // 나연님 코드
+    // 상단 4개의 버튼 카테고라이징 메소드
+    @IBAction func didTappedCategoryBtn(_ sender: UIButton) {
+        
+        //버튼과 레이블을 튜플로 묶은것을 변수로 저장
+        let buttonLabelPairs: [(UIButton, UILabel)] = [(macButton,macLabel),(iPhoneButton,iPhoneLabel),(iPadButton,iPadLabel),(watchButton,watchLabel)]
+        
+        // 버튼과 레이블을 흰색과 검은색으로 초기화
+        buttonLabelPairs.forEach {
+            $0.0.backgroundColor = .white
+            $0.0.tintColor = .black
+            $0.1.textColor = .black
+        }
+        
+        // 선택된 버튼과 레이블의 튜플을 필터링하여 가져오기
+        let selectedButtonLabelPair = buttonLabelPairs.filter { $0.0 == sender }
+       
+        // 선택된 버튼과 레이블의 색상을 검은색과 흰색으로 변경
+        selectedButtonLabelPair[0].0.backgroundColor = .black
+        selectedButtonLabelPair[0].0.tintColor = .white
+        selectedButtonLabelPair[0].1.textColor = .white 
+        if sender == macButton{
+            //mac 버튼 눌림
+            //print("mac 버튼 눌림")
+            
+        }else if sender == iPhoneButton{
+            //phone 버튼 눌림
+            //print("iphone 버튼 눌림")
+            
+        }else if sender == iPadButton{
+            //pad 버튼 눌림
+            //print("ipad 버튼 눌림")
+            
+        }else if sender == watchButton{
+            //watch 버튼 눌림
+            //print("watch 버튼 눌림")
+            
+        }
+    }
     
+    @IBOutlet weak var macButton: UIButton!
+    @IBOutlet weak var iPhoneButton: UIButton!
+    @IBOutlet weak var iPadButton: UIButton!
+    @IBOutlet weak var watchButton: UIButton!
+    
+    @IBOutlet weak var macLabel: UILabel!
+    @IBOutlet weak var iPhoneLabel: UILabel!
+    @IBOutlet weak var iPadLabel: UILabel!
+    @IBOutlet weak var watchLabel: UILabel!
+    
+    @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var macBookButton: UIButton!
+    @IBOutlet weak var iMacButton: UIButton!
+    @IBOutlet weak var macMiniButton: UIButton!
+    
+    
+    // 하단 4개의 버튼 카테고라이징 메소드
+    @IBAction func didTappedProductBtn(_ sender: UIButton) {
+        let productBtns: [UIButton] = [allButton, macBookButton, iMacButton, macMiniButton]
+      
+        // 모든 배경은 흰색, 텍스트는 검은색 초기화
+        for button in productBtns {
+            button.backgroundColor = UIColor.white
+            button.titleLabel?.textColor = .black
+        }
+        
+        // 선택된 버튼의 배경은 검은색, 텍스트는 흰색으로 설정
+        sender.backgroundColor = UIColor.black
+        sender.setTitleColor(.white, for: .normal)
+        //clicked
+    }
     
     
     // 임시 데이터
