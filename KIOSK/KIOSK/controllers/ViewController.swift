@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource/*, SecondViewControllerDelegate */ {
     
     // 임시 데이터
     var itemArray: [appleItem] = [
@@ -19,12 +19,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2)
     ]
     
-    @IBOutlet weak var bottomTableView: UITableView!
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+        
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+    }
     
+    @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
-    
     @IBOutlet weak var bottomView: UIView!
     
     override func viewDidLoad() {
@@ -67,6 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    // 합계 금액 업데이트 매서드
     func totalPriceUpdate() {
         var total = 0
         for item in itemArray {
@@ -74,10 +81,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         totalPrice.text = "₩ " + formatCurrency(amount: total)!
     }
+    
+    // 세 자리 수마다 콤마 찍기
+    func formatCurrency(amount: Int) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "ko_KR") // 한국 로케일로 설정 (콤마 사용)
+        return formatter.string(from: NSNumber(value: amount))
+    }
 
     // 초기 설정
     func configureUI() {
-        
         
         view.backgroundColor = .lightGray
         
@@ -88,13 +102,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         bottomTableView.rowHeight = 32
         cancelButton.setTitle("취 소", for: .normal)
         cancelButton.layer.cornerRadius = 18
-        // cancelButton.layer.borderWidth = 2.0
         cancelButton.tintColor = .black
         cancelButton.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        
-        // 혹시 블랙으로 할건지?
-        // cancelButton.layer.borderColor = UIColor.black.cgColor
-        // cancelButton.layer.borderColor = UIColor.lightGray.cgColor
         
         payButton.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         payButton.tintColor = .black
@@ -104,7 +113,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         totalPrice.text = "₩ 0"
     }
     
-    
+    // 갯수 버튼 누르면
     @IBAction func countButtonTapped(_ sender: UIButton) {
         
         guard let cell = sender.superview?.superview as? BottomCell else {
@@ -224,6 +233,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         present(alertController, animated: true)
     }
     
+    // 취소 버튼 누르면
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         
         // 얼럿 설정
@@ -246,13 +256,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
-    }
-    
-    func formatCurrency(amount: Int) -> String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = Locale(identifier: "ko_KR") // 한국 로케일로 설정 (콤마 사용)
-        return formatter.string(from: NSNumber(value: amount))
     }
     
 }
@@ -293,6 +296,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         checkPaymentAvailability()
     }
     
+    // 결제하기 버튼 활성화 비활성화 매서드
     func checkPaymentAvailability() {
         print(itemArray)
         if itemArray.isEmpty {
