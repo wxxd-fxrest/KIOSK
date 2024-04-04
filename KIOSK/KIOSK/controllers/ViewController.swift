@@ -121,15 +121,17 @@ class ViewController: UIViewController, UITableViewDataSource {
             if(selectedbtn==1){
                 print("Mac 전체")
                 midPageCount = 2
-                MidconfigureUI()
+                
+                //selectedbtn2 = 1
+                //middleTableView.reloadData()
                 
             }else if(selectedbtn==2){
                 print("iPhone 전체")
                 midPageCount = 2
                 
-                
-                selectedbtn2 = 2
-                MidconfigureUI()
+                //selectedbtn2 = 2
+                //middleTableView.reloadData()
+
             }else if(selectedbtn==3){
                 print("iPad 전체")
                 midPageCount = 2
