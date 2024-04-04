@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     // ******* 나연님 코드 *******
+    
     var selectedbtn = 1
     var selectedbtn2 = 1
     //var arrToUseCell = myDataManager.Mac
@@ -29,11 +30,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // 선택된 버튼과 레이블의 튜플을 필터링하여 가져오기
         let selectedButtonLabelPair = buttonLabelPairs.filter { $0.0 == sender }
-       
+        
         // 선택된 버튼과 레이블의 색상을 검은색과 흰색으로 변경
         selectedButtonLabelPair[0].0.backgroundColor = .black
         selectedButtonLabelPair[0].0.tintColor = .white
-        selectedButtonLabelPair[0].1.textColor = .white 
+        selectedButtonLabelPair[0].1.textColor = .white
         if sender == macButton{
             //mac 버튼 눌림
             //print("mac 버튼 눌림")
@@ -56,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             iMacButton.setTitle("iPhone 15", for: .normal)
             macMiniButton.setTitle("iPhone SE", for: .normal)
             didTappedProductBtn(allButton)
-           
+            
             
         }else if sender == iPadButton{
             //pad 버튼 눌림
@@ -80,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             iMacButton.setTitle("Ultra 2", for: .normal)
             macMiniButton.isHidden = true
             didTappedProductBtn(allButton)
-           
+            
         }
     }
     
@@ -103,7 +104,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     // 하단 4개의 버튼 카테고라이징 메소드
     @IBAction func didTappedProductBtn(_ sender: UIButton) {
         let productBtns: [UIButton] = [allButton, macBookButton, iMacButton, macMiniButton]
-      
+        
         // 모든 배경은 흰색, 텍스트는 검은색 초기화
         for button in productBtns {
             button.backgroundColor = UIColor.white
@@ -131,7 +132,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
                 //selectedbtn2 = 2
                 //middleTableView.reloadData()
-
+                
             }else if(selectedbtn==3){
                 print("iPad 전체")
                 midPageCount = 2
@@ -209,12 +210,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     var myDataManager = DataManager()
     var midPageCount = 2
     
-
-    //var newitemArray = DataManager().getItemDate()
-    //print(newitemArray)
-    
-    //middleTableView
-    @IBOutlet weak var middleTableView: UITableView!
+    //middleCollectionView
     
     @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
@@ -222,172 +218,72 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var bottomView: UIView!
     
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        MidconfigureUI()
         setupDatas()
-        
-        // 필터링된 결과 출력 예시
-        print()
-        let macItems = myDataManager.itemsVariety(forVariety: "iPhone")
-        for item in macItems {
-            //print("\(item.name) (\(item.variety)) - \(item.color): ₩\(item.price)")
-        }
-        // 여기까지 필터링
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == middleTableView{
-            return midPageCount
-        }
         return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        // bottomTableVioew cell 동작 실행
-        if tableView == bottomTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
-            
-            // color에 따라 이미지 설정
-            let item = itemArray[indexPath.row]
-            
-            switch item.color {
-            case "Silver":
-                cell.buyColorInCell.image = UIImage(named: "silver")
-            case "Space Gray":
-                cell.buyColorInCell.image = UIImage(named: "space gray")
-            case "Starlight":
-                cell.buyColorInCell.image = UIImage(named: "starlight")
-            case "Midnight":
-                cell.buyColorInCell.image = UIImage(named: "midnight")
-            default:
-                // 기본 이미지 설정
-                cell.buyColorInCell.image = UIImage(named: "mango")
-            }
-            
-            let totalPriceForRow = item.price * item.count
-            cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
-            cell.buyCountInCell.setTitle(String(item.count), for: .normal)
-            cell.buyNameInCell.text = item.name
-            
-            // cell의 buyColorInCell 이미지뷰를 원형으로 설정
-            cell.buyColorInCell.layer.cornerRadius = cell.buyColorInCell.frame.height / 2
-            cell.buyColorInCell.layer.masksToBounds = true
-
-            
-            // 결제 가능 여부 확인
-            checkPaymentAvailability()
-            
-            return cell
-            
-            }else{
-                
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
-                        fatalError("The dequeued cell is not an instance of MiddleCell.")
-                }
-                
-                // 예제: cell의 UI 컴포넌트 구성
-            
-//                cell.btnRight.setTitle("", for: .normal)   
-//                cell.btnLeft.setTitle("", for: .normal)       
-                // 일반 상태
-                // 필요한 다른 상태들에 대해서도 동일하게 적용
-                // 조건배열
-                let arrToUseCell = myDataManager.Mac
-                let arrToUseCell2 = myDataManager.iPhone
-                let arrToUseCell3 = myDataManager.iPad
-                let arrToUseCell4 = myDataManager.watch
-                print(arrToUseCell)
-                print(indexPath)
-                
-                if(selectedbtn2 == 1){
-                    guard indexPath.row*2 + 1 < arrToUseCell.count else {
-                        // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
-                        // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
-//                        cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-//                        cell.btnRight.isHidden = true
-//                        cell.btnRightDetail.isHidden = true
-                        // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
-                        return cell
-                    }
-
-                    // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
-//                    cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-//                    cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
-                    
-                    return cell
-                }else if(selectedbtn2 == 2){
-                    guard indexPath.row*2 + 1 < arrToUseCell2.count else {
-                        // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
-                        // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
-                        cell.btnLeft.setImage(UIImage(named: arrToUseCell2[indexPath.row*2]), for: .normal)
-                        cell.btnRight.isHidden = true
-                        cell.btnRightDetail.isHidden = true
-                        // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
-                        return cell
-                    }
-
-                    // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
-                    cell.btnLeft.setImage(UIImage(named: arrToUseCell2[indexPath.row*2]), for: .normal)
-                    cell.btnRight.setImage(UIImage(named: arrToUseCell2[indexPath.row*2 + 1]), for: .normal)
-                    
-                    return cell
-                }
-                // UITableViewCell 내부 또는 cellForRowAt 메소드 내부에서
-
-                // btnRight에 이미지를 설정하기 전에 배열의 범위를 확인
-                guard indexPath.row*2 + 1 < arrToUseCell.count else {
-                    // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
-                    // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
-                    cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-                    cell.btnRight.isHidden = true
-                    cell.btnRightDetail.isHidden = true
-                    // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
-                    return cell
-                }
-
-                // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
-                cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-                cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
-                
-                return cell
-            }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+        
+        // color에 따라 이미지 설정
+        let item = itemArray[indexPath.row]
+        
+        switch item.color {
+        case "Silver":
+            cell.buyColorInCell.image = UIImage(named: "silver")
+        case "Space Gray":
+            cell.buyColorInCell.image = UIImage(named: "space gray")
+        case "Starlight":
+            cell.buyColorInCell.image = UIImage(named: "starlight")
+        case "Midnight":
+            cell.buyColorInCell.image = UIImage(named: "midnight")
+        default:
+            // 기본 이미지 설정
+            cell.buyColorInCell.image = UIImage(named: "mango")
+        }
+        
+        let totalPriceForRow = item.price * item.count
+        cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
+        cell.buyCountInCell.setTitle(String(item.count), for: .normal)
+        cell.buyNameInCell.text = item.name
+        
+        // cell의 buyColorInCell 이미지뷰를 원형으로 설정
+        cell.buyColorInCell.layer.cornerRadius = cell.buyColorInCell.frame.height / 2
+        cell.buyColorInCell.layer.masksToBounds = true
+        
+        // 결제 가능 여부 확인
+        checkPaymentAvailability()
+        
+        return cell
+        
     }
-   
-   
-
+    
     // 초기 설정
     func configureUI() {
         view.backgroundColor = .lightGray
-        
         bottomView.backgroundColor = .lightGray
         bottomView.layer.cornerRadius = 10
-        
         bottomTableView.dataSource = self
         bottomTableView.rowHeight = 32
         cancelButton.setTitle("취 소", for: .normal)
         cancelButton.layer.cornerRadius = 18
         cancelButton.tintColor = .black
         cancelButton.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        
         payButton.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         payButton.tintColor = .black
         payButton.setTitle("결제하기", for: .normal)
         payButton.layer.cornerRadius = 18
-        
         totalPrice.text = "₩ 0"
     }
     
-    func MidconfigureUI() {
-        
-        middleTableView.dataSource = self
-        middleTableView.rowHeight = 160
-            
-    }
     // 합계 금액 업데이트 매서드
     func totalPriceUpdate() {
         var total = 0
@@ -404,167 +300,155 @@ class ViewController: UIViewController, UITableViewDataSource {
         formatter.locale = Locale(identifier: "ko_KR") // 한국 로케일로 설정 (콤마 사용)
         return formatter.string(from: NSNumber(value: amount))
     }
-
+    
     
     func setupDatas() {
+        //수정하기
         myDataManager.makeItemData()
         myDataManager.updateItemVariety()
         newitemArray = myDataManager.getItemDate()
-        
-        
-        for i in newitemArray{
-            //print(i)
-        }
-                
     }
     
     // 갯수 버튼 누르면
     @IBAction func countButtonTapped(_ sender: UIButton) {
         
         guard let cell = sender.superview?.superview as? BottomCell else {
-                return
+            return
+        }
+        
+        // 셀의 인덱스를 가져옵니다.
+        guard let indexPath = bottomTableView.indexPath(for: cell) else {
+            return
+        }
+        
+        // 현재 주문 수량을 가져옵니다.
+        let currentCount = itemArray[indexPath.row].count
+        
+        // 얼럿 컨트롤러 생성
+        let alertController = UIAlertController(title: "주문 수량 변경", message: "주문 수량을 변경하세요.", preferredStyle: .alert)
+        
+        // UIViewController를 생성하여 추가합니다.
+        let containerViewController = UIViewController()
+        containerViewController.preferredContentSize = CGSize(width: 250, height: 150)
+        alertController.setValue(containerViewController, forKey: "contentViewController")
+        
+        // UIPicker 생성
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        // 현재 주문 수량을 선택된 값으로 설정
+        pickerView.selectRow(currentCount - 1, inComponent: 0, animated: false)
+        
+        // 얼럿 컨트롤러에 피커뷰를 추가합니다.
+        containerViewController.view.addSubview(pickerView)
+        
+        // "확인" 액션 추가
+        let confirmAction = UIAlertAction(title: "확인", style: .default) { action in
+            // 변경된 주문 수량을 피커뷰에서 가져옴
+            let selectedRow = pickerView.selectedRow(inComponent: 0)
+            let newCount = selectedRow + 1
+            // 아이템의 주문 수량이 1부터 10까지인 경우에만 변경
+            if (1...10).contains(newCount) {
+                // 아이템의 주문 수량 변경
+                self.itemArray[indexPath.row].count = newCount
+                // 테이블 뷰 리로드하여 변경 사항 반영
+                self.bottomTableView.reloadData()
+                // 총 가격 업데이트
+                self.totalPriceUpdate()
             }
-            
-            // 셀의 인덱스를 가져옵니다.
-            guard let indexPath = bottomTableView.indexPath(for: cell) else {
-                return
-            }
-            
-            // 현재 주문 수량을 가져옵니다.
-            let currentCount = itemArray[indexPath.row].count
-            
-            // 얼럿 컨트롤러 생성
-            let alertController = UIAlertController(title: "주문 수량 변경", message: "주문 수량을 변경하세요.", preferredStyle: .alert)
-            
-            // UIViewController를 생성하여 추가합니다.
-            let containerViewController = UIViewController()
-            containerViewController.preferredContentSize = CGSize(width: 250, height: 150)
-            alertController.setValue(containerViewController, forKey: "contentViewController")
-            
-            // UIPicker 생성
-            let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
-            pickerView.dataSource = self
-            pickerView.delegate = self
-            // 현재 주문 수량을 선택된 값으로 설정
-            pickerView.selectRow(currentCount - 1, inComponent: 0, animated: false)
-            
-            // 얼럿 컨트롤러에 피커뷰를 추가합니다.
-            containerViewController.view.addSubview(pickerView)
-            
-            // "확인" 액션 추가
-            let confirmAction = UIAlertAction(title: "확인", style: .default) { action in
-                // 변경된 주문 수량을 피커뷰에서 가져옴
-                let selectedRow = pickerView.selectedRow(inComponent: 0)
-                let newCount = selectedRow + 1
-                // 아이템의 주문 수량이 1부터 10까지인 경우에만 변경
-                if (1...10).contains(newCount) {
-                    // 아이템의 주문 수량 변경
-                    self.itemArray[indexPath.row].count = newCount
-                    // 테이블 뷰 리로드하여 변경 사항 반영
-                    self.bottomTableView.reloadData()
-                    // 총 가격 업데이트
-                    self.totalPriceUpdate()
-                }
-            }
-            alertController.addAction(confirmAction)
-            
-            // "취소" 액션 추가
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-            alertController.addAction(cancelAction)
-            
-            // 얼럿 창 표시
-            present(alertController, animated: true)
+        }
+        alertController.addAction(confirmAction)
+        
+        // "취소" 액션 추가
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        alertController.addAction(cancelAction)
+        
+        // 얼럿 창 표시
+        present(alertController, animated: true)
         
     }
     
-       
-       
-       
-       @IBAction func deleteButtonTapped(_ sender: UIButton) {
-           guard let cell = sender.superview?.superview as? BottomCell,
-                 let indexPath = bottomTableView.indexPath(for: cell) else {
-               return
-           }
-           
-           // 해당 셀의 아이템을 배열에서 제거
-           itemArray.remove(at: indexPath.row)
-           
-           // 테이블 뷰에서 해당 셀을 제거
-           bottomTableView.deleteRows(at: [indexPath], with: .automatic)
-           
-           // 최종 가격 업데이트
-           totalPriceUpdate()
-           
-           // 결제 가능 여부 확인
-           checkPaymentAvailability()
-       }
-       
-       
-       
-       
-       
-       @IBAction func payButtonTapped(_ sender: UIButton) {
-           // 얼럿 설정
-           let alertController = UIAlertController(title: "결제", message: "주문하신 상품으로 결제가 진행됩니다.", preferredStyle: .alert)
-           
-           // "결제" 버튼 설정
-           let payAction = UIAlertAction(title: "결제", style: .default) { _ in
-               // 결제 완료 얼럿 설정
-               let successAlertController = UIAlertController(title: "결제 완료", message: "결제가 완료되었습니다.", preferredStyle: .alert)
-               
-               // "확인" 버튼 설정
-               let okAction = UIAlertAction(title: "확인", style: .default) { _ in
-                   // 배열을 완전히 비워줍니다.
-                   self.itemArray.removeAll()
-                   // 테이블 뷰를 다시 로드하여 빈 상태를 반영합니다.
-                   self.bottomTableView.reloadData()
-                   // 최종 가격 업데이트
-                   self.totalPriceUpdate()
-                   // 결제 가능 여부 확인
-                   self.checkPaymentAvailability()
-                   // UI 초기화
-                   self.configureUI()
-               }
-               
-               // 성공 얼럿에 "확인" 액션 추가
-               successAlertController.addAction(okAction)
-               
-               // 결제 완료 얼럿 표시
-               self.present(successAlertController, animated: true)
-           }
-           
-           // alertController에 "결제" 버튼만 추가
-           alertController.addAction(payAction)
-           
-           // 얼럿 표시
-           present(alertController, animated: true)
-       }
-       
-       // 취소 버튼 누르면
-       @IBAction func cancelButtonTapped(_ sender: UIButton) {
-           
-           // 얼럿 설정
-           let alertController = UIAlertController(title: "내역 삭제", message: "장바구니를 비웁니다.", preferredStyle: .alert)
-           
-           // "삭제" 버튼 설정
-           let deleteAction = UIAlertAction(title: "삭제", style: .default) { _ in
-               // Cell에 받은 데이터를 초기화하기
-               self.itemArray.removeAll()
-               self.bottomTableView.reloadData()
-               self.totalPriceUpdate()
-               self.checkPaymentAvailability()
-               self.configureUI()
-           }
-           
-           // "취소" 버튼 설정
-           let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-           
-           // alertController에 "삭제"와 "취소" 버튼을 편성
-           alertController.addAction(deleteAction)
-           alertController.addAction(cancelAction)
-           present(alertController, animated: true)
-       }
-
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        guard let cell = sender.superview?.superview as? BottomCell,
+              let indexPath = bottomTableView.indexPath(for: cell) else {
+            return
+        }
+        
+        // 해당 셀의 아이템을 배열에서 제거
+        itemArray.remove(at: indexPath.row)
+        
+        // 테이블 뷰에서 해당 셀을 제거
+        bottomTableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        // 최종 가격 업데이트
+        totalPriceUpdate()
+        
+        // 결제 가능 여부 확인
+        checkPaymentAvailability()
+    }
+    
+    @IBAction func payButtonTapped(_ sender: UIButton) {
+        // 얼럿 설정
+        let alertController = UIAlertController(title: "결제", message: "주문하신 상품으로 결제가 진행됩니다.", preferredStyle: .alert)
+        
+        // "결제" 버튼 설정
+        let payAction = UIAlertAction(title: "결제", style: .default) { _ in
+            // 결제 완료 얼럿 설정
+            let successAlertController = UIAlertController(title: "결제 완료", message: "결제가 완료되었습니다.", preferredStyle: .alert)
+            
+            // "확인" 버튼 설정
+            let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                // 배열을 완전히 비워줍니다.
+                self.itemArray.removeAll()
+                // 테이블 뷰를 다시 로드하여 빈 상태를 반영합니다.
+                self.bottomTableView.reloadData()
+                // 최종 가격 업데이트
+                self.totalPriceUpdate()
+                // 결제 가능 여부 확인
+                self.checkPaymentAvailability()
+                // UI 초기화
+                self.configureUI()
+            }
+            
+            // 성공 얼럿에 "확인" 액션 추가
+            successAlertController.addAction(okAction)
+            
+            // 결제 완료 얼럿 표시
+            self.present(successAlertController, animated: true)
+        }
+        
+        // alertController에 "결제" 버튼만 추가
+        alertController.addAction(payAction)
+        
+        // 얼럿 표시
+        present(alertController, animated: true)
+    }
+    
+    // 취소 버튼 누르면
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        
+        // 얼럿 설정
+        let alertController = UIAlertController(title: "내역 삭제", message: "장바구니를 비웁니다.", preferredStyle: .alert)
+        
+        // "삭제" 버튼 설정
+        let deleteAction = UIAlertAction(title: "삭제", style: .default) { _ in
+            // Cell에 받은 데이터를 초기화하기
+            self.itemArray.removeAll()
+            self.bottomTableView.reloadData()
+            self.totalPriceUpdate()
+            self.checkPaymentAvailability()
+            self.configureUI()
+        }
+        
+        // "취소" 버튼 설정
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        
+        // alertController에 "삭제"와 "취소" 버튼을 편성
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
 }
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     // 피커뷰의 컴포넌트 수
@@ -627,74 +511,74 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 //
 
 /*
-    func didSelectBasket(with items: [appleItem]) {
-        print("SecondViewController -> ViewController: \(items)")
-        
-        itemArray.append(contentsOf: items)
-        bottomTableView.reloadData()
-        totalPriceUpdate()
-    }
-*/
+ func didSelectBasket(with items: [appleItem]) {
+ print("SecondViewController -> ViewController: \(items)")
+ 
+ itemArray.append(contentsOf: items)
+ bottomTableView.reloadData()
+ totalPriceUpdate()
+ }
+ */
 
-    
-    
-    
- 
- 
- 
-    
+
+
+
+
+
+
+
 /*
-
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    // 피커뷰의 컴포넌트 수
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // 피커뷰의 행 수
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
-    }
-    
-    // 각 행에 해당하는 타이틀을 반환
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(row + 1)" // 1부터 10까지의 수량을 문자열로 반환
-    }
-    
-    // 피커뷰에서 선택된 행의 값을 가져와서 주문 수량을 업데이트
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // 현재 선택된 셀의 인덱스를 가져옵니다.
-        guard let indexPath = bottomTableView.indexPathForSelectedRow else {
-            return
-        }
-        // 선택된 셀에 해당하는 아이템을 가져옵니다.
-        var selectedItem = itemArray[indexPath.row]
-        // 새로운 주문 수량을 설정합니다.
-        let newCount = row + 1
-        // 아이템의 주문 수량을 변경하고 테이블 뷰를 업데이트합니다.
-        selectedItem.count = newCount
-        itemArray[indexPath.row] = selectedItem
-        bottomTableView.reloadRows(at: [indexPath], with: .automatic)
-        // 총 가격 업데이트
-        totalPriceUpdate()
-        // 결제 가능 여부 확인
-        checkPaymentAvailability()
-    }
-    
-    // 결제하기 버튼 활성화 비활성화 매서드
-    func checkPaymentAvailability() {
-        print(itemArray)
-        if itemArray.isEmpty {
-            // itemArray가 비어있으면 결제하기 버튼 비활성화
-            payButton.isEnabled = false
-            payButton.backgroundColor = UIColor.lightGray
-            payButton.setTitleColor(.black, for: .normal)
-        } else {
-            // itemArray에 내용이 있으면 결제하기 버튼 활성화
-            payButton.isEnabled = true
-            payButton.backgroundColor = .black
-            payButton.setTitleColor(.white, for: .normal)
-        }
-    }
-}
-*/
+ 
+ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+ // 피커뷰의 컴포넌트 수
+ func numberOfComponents(in pickerView: UIPickerView) -> Int {
+ return 1
+ }
+ 
+ // 피커뷰의 행 수
+ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+ return 10
+ }
+ 
+ // 각 행에 해당하는 타이틀을 반환
+ func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+ return "\(row + 1)" // 1부터 10까지의 수량을 문자열로 반환
+ }
+ 
+ // 피커뷰에서 선택된 행의 값을 가져와서 주문 수량을 업데이트
+ func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+ // 현재 선택된 셀의 인덱스를 가져옵니다.
+ guard let indexPath = bottomTableView.indexPathForSelectedRow else {
+ return
+ }
+ // 선택된 셀에 해당하는 아이템을 가져옵니다.
+ var selectedItem = itemArray[indexPath.row]
+ // 새로운 주문 수량을 설정합니다.
+ let newCount = row + 1
+ // 아이템의 주문 수량을 변경하고 테이블 뷰를 업데이트합니다.
+ selectedItem.count = newCount
+ itemArray[indexPath.row] = selectedItem
+ bottomTableView.reloadRows(at: [indexPath], with: .automatic)
+ // 총 가격 업데이트
+ totalPriceUpdate()
+ // 결제 가능 여부 확인
+ checkPaymentAvailability()
+ }
+ 
+ // 결제하기 버튼 활성화 비활성화 매서드
+ func checkPaymentAvailability() {
+ print(itemArray)
+ if itemArray.isEmpty {
+ // itemArray가 비어있으면 결제하기 버튼 비활성화
+ payButton.isEnabled = false
+ payButton.backgroundColor = UIColor.lightGray
+ payButton.setTitleColor(.black, for: .normal)
+ } else {
+ // itemArray에 내용이 있으면 결제하기 버튼 활성화
+ payButton.isEnabled = true
+ payButton.backgroundColor = .black
+ payButton.setTitleColor(.white, for: .normal)
+ }
+ }
+ }
+ */
