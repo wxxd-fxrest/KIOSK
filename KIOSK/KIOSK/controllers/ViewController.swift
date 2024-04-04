@@ -10,7 +10,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     
     
-    // 나연님 코드
+    // ******* 나연님 코드 *******
+    
     // 상단 4개의 버튼 카테고라이징 메소드
     @IBAction func didTappedCategoryBtn(_ sender: UIButton) {
         
@@ -82,6 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         //clicked
     }
     
+    // ******* 나연님 코드 *******
     
     // 임시 데이터
     var itemArray: [appleItem] = [
@@ -99,16 +101,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     //print(newitemArray)
     
     //middleTableView
-    
     @IBOutlet weak var middleTableView: UITableView!
-    
-    //bottomTableView
     @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
-
-    
 
 
     override func viewDidLoad() {
@@ -144,15 +141,16 @@ class ViewController: UIViewController, UITableViewDataSource {
             cell.buyNameInCell.text = itemArray[indexPath.row].name
             cell.buyPriceInCell.text = "₩ \(itemArray[indexPath.row].price)"
             return cell
-        }else{
+            }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
                     fatalError("The dequeued cell is not an instance of MiddleCell.")
-                }
+        }
                 
-                // 예제: cell의 UI 컴포넌트 구성
+        // 예제: cell의 UI 컴포넌트 구성
             
             cell.btnRight.setTitle("", for: .normal)   
-            cell.btnLeft.setTitle("", for: .normal)       // 일반 상태
+            cell.btnLeft.setTitle("", for: .normal)       
+            // 일반 상태
             // 필요한 다른 상태들에 대해서도 동일하게 적용
             // 조건배열
             let arrToUseCell = myDataManager.Mac
