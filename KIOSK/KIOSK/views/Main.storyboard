@@ -333,6 +333,9 @@
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="detail"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="detail" titleAlignment="center"/>
+                                                            <connections>
+                                                                <segue destination="sQX-lj-v3J" kind="show" identifier="showSecondViewController" id="ACj-x8-hCd"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-4R-g68">
                                                             <rect key="frame" x="180" y="122.99999999999999" width="130" height="34.333333333333329"/>
@@ -567,6 +570,16 @@
                 <exit id="b3G-D6-9Ca" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-8.3969465648854964" y="-28.169014084507044"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="BTZ-wT-E2c">
+            <objects>
+                <viewControllerPlaceholder id="sQX-lj-v3J" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0u4-da-1uc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XnL-Jg-WRT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="-178"/>
         </scene>
     </scenes>
     <resources>
