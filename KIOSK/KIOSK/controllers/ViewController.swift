@@ -11,7 +11,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     // ******* 나연님 코드 *******
-    
+    var selectedbtn = 1
+    var selectedbtn2 = 1
+    //var arrToUseCell = myDataManager.Mac
     // 상단 4개의 버튼 카테고라이징 메소드
     @IBAction func didTappedCategoryBtn(_ sender: UIButton) {
         
@@ -35,6 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         if sender == macButton{
             //mac 버튼 눌림
             //print("mac 버튼 눌림")
+            selectedbtn = 1
             macMiniButton.isHidden = false
             allButton.setTitle("전체", for: .normal)
             macBookButton.setTitle("MacBook", for: .normal)
@@ -42,19 +45,23 @@ class ViewController: UIViewController, UITableViewDataSource {
             macMiniButton.setTitle("Mac Mini", for: .normal)
             didTappedProductBtn(allButton)
             
+            
         }else if sender == iPhoneButton{
             //phone 버튼 눌림
             //print("iphone 버튼 눌림")
+            selectedbtn = 2
             macMiniButton.isHidden = false
             allButton.setTitle("전체", for: .normal)
             macBookButton.setTitle("iPhone 15 Pro", for: .normal)
             iMacButton.setTitle("iPhone 15", for: .normal)
             macMiniButton.setTitle("iPhone SE", for: .normal)
             didTappedProductBtn(allButton)
+           
             
         }else if sender == iPadButton{
             //pad 버튼 눌림
             //print("ipad 버튼 눌림")
+            selectedbtn = 3
             macMiniButton.isHidden = false
             allButton.setTitle("전체", for: .normal)
             macBookButton.setTitle("iPad Air", for: .normal)
@@ -62,15 +69,18 @@ class ViewController: UIViewController, UITableViewDataSource {
             macMiniButton.setTitle("iPad Pro", for: .normal)
             didTappedProductBtn(allButton)
             
+            
         }else if sender == watchButton{
             //watch 버튼 눌림
             //print("watch 버튼 눌림")
+            selectedbtn = 4
+            
             allButton.setTitle("전체", for: .normal)
             macBookButton.setTitle("Series 9", for: .normal)
             iMacButton.setTitle("Ultra 2", for: .normal)
             macMiniButton.isHidden = true
             didTappedProductBtn(allButton)
-            
+           
         }
     }
     
@@ -107,6 +117,76 @@ class ViewController: UIViewController, UITableViewDataSource {
         sender.titleLabel?.textColor = .white
         
         //clicked
+        if(sender==allButton){
+            if(selectedbtn==1){
+                print("Mac 전체")
+                midPageCount = 2
+                MidconfigureUI()
+                
+            }else if(selectedbtn==2){
+                print("iPhone 전체")
+                midPageCount = 2
+                
+                
+                selectedbtn2 = 2
+                MidconfigureUI()
+            }else if(selectedbtn==3){
+                print("iPad 전체")
+                midPageCount = 2
+                
+            }else if(selectedbtn==4){
+                print("Watch 전체")
+                midPageCount = 2
+            }
+        }else if(sender == macBookButton){
+            if(selectedbtn==1){
+                print("MacBook")
+                midPageCount = 1
+                
+            }else if(selectedbtn==2){
+                print("iPhone 15 Pro")
+                midPageCount = 1
+                
+            }else if(selectedbtn==3){
+                print("iPad Air")
+                midPageCount = 1
+                
+            }else if(selectedbtn==4){
+                print("Series 9")
+                midPageCount = 1
+            }
+        }else if(sender == iMacButton){
+            if(selectedbtn==1){
+                print("iMac")
+                midPageCount = 1
+            }else if(selectedbtn==2){
+                print("iPhone 15")
+                midPageCount = 1
+                
+            }else if(selectedbtn==3){
+                print("iPad")
+                midPageCount = 1
+            }else if(selectedbtn==4){
+                print("Ultra 2")
+                midPageCount = 1
+            }
+        }else if(sender == macMiniButton){
+            if(selectedbtn==1){
+                print("Mac Mini")
+                midPageCount = 1
+                
+            }else if(selectedbtn==2){
+                print("iPhone SE")
+                midPageCount = 1
+                
+            }else if(selectedbtn==3){
+                print("iPad Pro")
+                midPageCount = 1
+                
+            }else if(selectedbtn==4){
+                //print("Mac Mini")
+            }
+        }
     }
     
     // ******* 나연님 코드 *******
@@ -199,45 +279,76 @@ class ViewController: UIViewController, UITableViewDataSource {
             
             }else{
                 
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
-                    fatalError("The dequeued cell is not an instance of MiddleCell.")
-        }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
+                        fatalError("The dequeued cell is not an instance of MiddleCell.")
+                }
                 
-        // 예제: cell의 UI 컴포넌트 구성
+                // 예제: cell의 UI 컴포넌트 구성
             
-            cell.btnRight.setTitle("", for: .normal)   
-            cell.btnLeft.setTitle("", for: .normal)       
-            // 일반 상태
-            // 필요한 다른 상태들에 대해서도 동일하게 적용
-            // 조건배열
-            let arrToUseCell = myDataManager.Mac
-            print(arrToUseCell)
-            print(indexPath)
-           
-            // UITableViewCell 내부 또는 cellForRowAt 메소드 내부에서
+                cell.btnRight.setTitle("", for: .normal)   
+                cell.btnLeft.setTitle("", for: .normal)       
+                // 일반 상태
+                // 필요한 다른 상태들에 대해서도 동일하게 적용
+                // 조건배열
+                let arrToUseCell = myDataManager.Mac
+                let arrToUseCell2 = myDataManager.iPhone
+                let arrToUseCell3 = myDataManager.iPad
+                let arrToUseCell4 = myDataManager.watch
+                print(arrToUseCell)
+                print(indexPath)
+                
+                if(selectedbtn2 == 1){
+                    guard indexPath.row*2 + 1 < arrToUseCell.count else {
+                        // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
+                        // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
+                        cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+                        cell.btnRight.isHidden = true
+                        cell.btnRightDetail.isHidden = true
+                        // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
+                        return cell
+                    }
 
-            // btnRight에 이미지를 설정하기 전에 배열의 범위를 확인
-            guard indexPath.row*2 + 1 < arrToUseCell.count else {
-                // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
-                // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
+                    // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
+                    cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+                    cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
+                    
+                    return cell
+                }else if(selectedbtn2 == 2){
+                    guard indexPath.row*2 + 1 < arrToUseCell2.count else {
+                        // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
+                        // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
+                        cell.btnLeft.setImage(UIImage(named: arrToUseCell2[indexPath.row*2]), for: .normal)
+                        cell.btnRight.isHidden = true
+                        cell.btnRightDetail.isHidden = true
+                        // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
+                        return cell
+                    }
+
+                    // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
+                    cell.btnLeft.setImage(UIImage(named: arrToUseCell2[indexPath.row*2]), for: .normal)
+                    cell.btnRight.setImage(UIImage(named: arrToUseCell2[indexPath.row*2 + 1]), for: .normal)
+                    
+                    return cell
+                }
+                // UITableViewCell 내부 또는 cellForRowAt 메소드 내부에서
+
+                // btnRight에 이미지를 설정하기 전에 배열의 범위를 확인
+                guard indexPath.row*2 + 1 < arrToUseCell.count else {
+                    // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
+                    // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
+                    cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+                    cell.btnRight.isHidden = true
+                    cell.btnRightDetail.isHidden = true
+                    // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
+                    return cell
+                }
+
+                // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
                 cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-                cell.btnRight.isHidden = true
-                cell.btnRightDetail.isHidden = true
-                // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
+                cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
+                
                 return cell
             }
-            
-
-            // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
-            cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-            cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
-
-            
-            //cell.btnRight.image =
-            //cell.btnLeft.image =
-
-            return cell
-        }
     }
    
    
