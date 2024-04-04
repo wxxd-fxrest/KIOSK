@@ -9,6 +9,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     
+    
+    //나연님 코드
+    
+    
+    
     // 임시 데이터
     var itemArray: [appleItem] = [
         appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Black", count: 1),
