@@ -195,12 +195,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // 임시 데이터
     var itemArray: [appleItem] = [
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2)
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "silver", count: 1),
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "midnight", count: 2),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "starlight", count: 1),
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "spacegray", count: 2),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "silver", count: 1),
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "spacegray", count: 2)
     ]
     
     
@@ -256,23 +256,29 @@ class ViewController: UIViewController, UITableViewDataSource {
             let item = itemArray[indexPath.row]
             
             switch item.color {
-            case "Silver":
+            case "silver":
                 cell.buyColorInCell.image = UIImage(named: "silver")
-            case "Space Gray":
-                cell.buyColorInCell.image = UIImage(named: "space gray")
-            case "Starlight":
+            case "spacegray":
+                cell.buyColorInCell.image = UIImage(named: "spacegray")
+            case "starlight":
                 cell.buyColorInCell.image = UIImage(named: "starlight")
-            case "Midnight":
+            case "midnight":
                 cell.buyColorInCell.image = UIImage(named: "midnight")
             default:
                 // 기본 이미지 설정
-                cell.buyColorInCell.image = UIImage(named: "mango")
+                
+                cell.buyColorInCell.image = UIImage(named: "starlight")
             }
             
             let totalPriceForRow = item.price * item.count
             cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
             cell.buyCountInCell.setTitle(String(item.count), for: .normal)
             cell.buyNameInCell.text = item.name
+            
+            // cell의 buyColorInCell 이미지뷰를 원형으로 설정
+            cell.buyColorInCell.layer.cornerRadius = cell.buyColorInCell.frame.height / 2
+            cell.buyColorInCell.layer.masksToBounds = true
+
             
             // 결제 가능 여부 확인
             checkPaymentAvailability()

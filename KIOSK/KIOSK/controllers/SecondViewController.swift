@@ -17,7 +17,7 @@ class SecondViewController: UIViewController {
     
     // MARK: - Data
     var itemArray: [appleItem] = [
-        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "StarLightColor", count: 1),
+        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "starlight", count: 1),
     ]
     
     
@@ -211,16 +211,16 @@ class SecondViewController: UIViewController {
         switch selectedColorView {
         case starlightView:
             starlightBackView.layer.borderWidth = 1.0
-            starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            starlightBackView.layer.borderColor = UIColor(named: "StarLightColor")?.cgColor
         case silverView:
             silverBackVIew.layer.borderWidth = 1.0
-            silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            silverBackVIew.layer.borderColor = UIColor(named: "silver")?.cgColor
         case spaceGrayView:
             spaceGrayBackView.layer.borderWidth = 1.0
-            spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            spaceGrayBackView.layer.borderColor = UIColor(named: "spacegray")?.cgColor
         case midnightView:
             midnightBackView.layer.borderWidth = 1.0
-            midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            midnightBackView.layer.borderColor = UIColor(named: "midnight")?.cgColor
         default:
             break
         }
