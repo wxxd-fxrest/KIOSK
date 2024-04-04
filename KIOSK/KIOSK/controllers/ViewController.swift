@@ -274,6 +274,11 @@ class ViewController: UIViewController, UITableViewDataSource {
             cell.buyCountInCell.setTitle(String(item.count), for: .normal)
             cell.buyNameInCell.text = item.name
             
+            // cell의 buyColorInCell 이미지뷰를 원형으로 설정
+            cell.buyColorInCell.layer.cornerRadius = cell.buyColorInCell.frame.height / 2
+            cell.buyColorInCell.layer.masksToBounds = true
+
+            
             // 결제 가능 여부 확인
             checkPaymentAvailability()
             
@@ -287,8 +292,8 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
                 // 예제: cell의 UI 컴포넌트 구성
             
-                cell.btnRight.setTitle("", for: .normal)   
-                cell.btnLeft.setTitle("", for: .normal)       
+//                cell.btnRight.setTitle("", for: .normal)   
+//                cell.btnLeft.setTitle("", for: .normal)       
                 // 일반 상태
                 // 필요한 다른 상태들에 대해서도 동일하게 적용
                 // 조건배열
@@ -303,16 +308,16 @@ class ViewController: UIViewController, UITableViewDataSource {
                     guard indexPath.row*2 + 1 < arrToUseCell.count else {
                         // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
                         // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
-                        cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-                        cell.btnRight.isHidden = true
-                        cell.btnRightDetail.isHidden = true
+//                        cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+//                        cell.btnRight.isHidden = true
+//                        cell.btnRightDetail.isHidden = true
                         // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
                         return cell
                     }
 
                     // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
-                    cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
-                    cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
+//                    cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+//                    cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
                     
                     return cell
                 }else if(selectedbtn2 == 2){
