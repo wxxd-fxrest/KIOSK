@@ -18,7 +18,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     //테스트 공간
     var newitemArray: [appleItem] = []
     var myDataManager = DataManager()
-    var midPageCount = 1
+    var midPageCount = 2
+    
 
     //var newitemArray = DataManager().getItemDate()
     //print(newitemArray)
@@ -46,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         print()
         let macItems = myDataManager.itemsVariety(forVariety: "iPhone")
         for item in macItems {
-            print("\(item.name) (\(item.variety)) - \(item.color): ₩\(item.price)")
+            //print("\(item.name) (\(item.variety)) - \(item.color): ₩\(item.price)")
         }
         // 여기까지 필터링
     }
@@ -79,10 +80,34 @@ class ViewController: UIViewController, UITableViewDataSource {
             cell.btnRight.setTitle("", for: .normal)   
             cell.btnLeft.setTitle("", for: .normal)       // 일반 상태
             // 필요한 다른 상태들에 대해서도 동일하게 적용
+            // 조건배열
+            let arrToUseCell = myDataManager.Mac
+            print(arrToUseCell)
+            print(indexPath)
+           
+            // UITableViewCell 내부 또는 cellForRowAt 메소드 내부에서
 
-                // cell.someImageView.image = someImage
-
+            // btnRight에 이미지를 설정하기 전에 배열의 범위를 확인
+            guard indexPath.row*2 + 1 < arrToUseCell.count else {
+                // indexPath.row + 1이 배열의 크기를 벗어날 경우, btnRight에 대한 처리를 할 수 있습니다.
+                // 예를 들어, btnRight를 숨기거나 기본 이미지를 설정할 수 있습니다.
+                cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+                cell.btnRight.isHidden = true
+                cell.btnRightDetail.isHidden = true
+                // 또는 cell.btnRight.setImage(기본 이미지, for: .normal)
                 return cell
+            }
+            
+
+            // indexPath.row + 1이 배열의 범위 내에 있을 경우, 정상적으로 이미지를 설정
+            cell.btnLeft.setImage(UIImage(named: arrToUseCell[indexPath.row*2]), for: .normal)
+            cell.btnRight.setImage(UIImage(named: arrToUseCell[indexPath.row*2 + 1]), for: .normal)
+
+            
+            //cell.btnRight.image =
+            //cell.btnLeft.image =
+
+            return cell
         }
     }
    
@@ -128,7 +153,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         
         for i in newitemArray{
-            print(i)
+            //print(i)
         }
                 
     }

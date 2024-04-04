@@ -139,7 +139,7 @@
                                                                 <constraint firstAttribute="height" constant="100" id="x7j-pc-Yah"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="Series 9" title="L"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
                                                             <connections>
                                                                 <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="mpy-N5-tqe"/>
                                                             </connections>
@@ -151,13 +151,13 @@
                                                                 <constraint firstAttribute="height" constant="100" id="xur-ra-dhM"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="iPad Air"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="pencil.tip.crop.circle.fill" catalog="system"/>
                                                             <connections>
                                                                 <action selector="btnLeft:" destination="b3G-D6-9Ca" eventType="touchUpInside" id="4S0-Wn-7IF"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tti-Sc-lmB">
-                                                            <rect key="frame" x="44" y="123.99999999999999" width="130" height="34.333333333333329"/>
+                                                            <rect key="frame" x="34" y="123.99999999999999" width="130" height="34.333333333333329"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="130" id="Qjt-WL-g9F"/>
@@ -168,11 +168,10 @@
                                                             <buttonConfiguration key="configuration" style="plain" title="detail" titleAlignment="center"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-4R-g68">
-                                                            <rect key="frame" x="182" y="122.99999999999999" width="130" height="34.333333333333329"/>
+                                                            <rect key="frame" x="180" y="122.99999999999999" width="130" height="34.333333333333329"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="130" id="S0I-7R-fLR"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="xbk-CT-RD2"/>
                                                             </constraints>
                                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -182,13 +181,12 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="2CR-Vm-AVO" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" constant="5" id="4lm-DM-dKb"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="tM2-4R-g68" secondAttribute="trailing" constant="9" id="5kX-GU-ahS"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="tM2-4R-g68" secondAttribute="trailing" constant="11" id="5kX-GU-ahS"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="qhS-5O-c71" secondAttribute="trailing" constant="30" id="7Ys-8C-5Ln"/>
                                                         <constraint firstItem="Tti-Sc-lmB" firstAttribute="top" secondItem="2CR-Vm-AVO" secondAttribute="bottom" constant="8" id="WjV-4H-rbc"/>
                                                         <constraint firstItem="2CR-Vm-AVO" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="30" id="XrW-Oq-hYh"/>
-                                                        <constraint firstItem="Tti-Sc-lmB" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="24" id="e12-yl-qni"/>
+                                                        <constraint firstItem="Tti-Sc-lmB" firstAttribute="leading" secondItem="eSe-hc-3mQ" secondAttribute="leadingMargin" constant="14" id="e12-yl-qni"/>
                                                         <constraint firstItem="qhS-5O-c71" firstAttribute="top" secondItem="eSe-hc-3mQ" secondAttribute="topMargin" constant="5" id="iKk-Ga-reT"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="tM2-4R-g68" secondAttribute="bottom" constant="8.6699999999999999" id="mJt-BH-wHA"/>
                                                         <constraint firstItem="tM2-4R-g68" firstAttribute="top" secondItem="qhS-5O-c71" secondAttribute="bottom" constant="7" id="nvn-vK-0wa"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -241,8 +239,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Series 9" width="63" height="75"/>
-        <image name="iPad Air" width="85" height="89"/>
+        <image name="pencil.tip.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,6 +9,9 @@ import Foundation
 
 class DataManager {
     var itemArray: [appleItem] = []
+    var Mac = [
+        "MacBook","iMac","Mac Mini"
+    ]
     
     func makeItemData() {
         var count = 0;
