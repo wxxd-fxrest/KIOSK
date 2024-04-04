@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zi1-hy-9Dh">
-                                <rect key="frame" x="36" y="69" width="341" height="190"/>
+                                <rect key="frame" x="26" y="69" width="341" height="190"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleVector.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z9E-ln-lue">
                                         <rect key="frame" x="158.66666666666666" y="7" width="24" height="28"/>
@@ -52,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukn-C1-Qb9" userLabel="iPhone">
-                                        <rect key="frame" x="93.666666666666657" y="60" width="71" height="71"/>
+                                        <rect key="frame" x="93.666666666666686" y="60" width="71" height="71"/>
                                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="71" id="B2Y-Kd-hvD"/>
@@ -153,7 +153,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuJ-iM-VG0">
-                                        <rect key="frame" x="93.666666666666657" y="143" width="71" height="35"/>
+                                        <rect key="frame" x="93.666666666666686" y="143" width="71" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="OOw-z8-NvV"/>
@@ -390,7 +390,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="cancelButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ng8-8Y-vqP"/>
+                                                    <action selector="cancelButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lEJ-Te-dQk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-qL-2KN">
@@ -445,6 +445,9 @@
                                                             <state key="normal" title="X">
                                                                 <color key="titleColor" systemColor="labelColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="deleteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r7N-ED-XAc"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mw-OL-sBD">
                                                             <rect key="frame" x="208" y="4" width="93" height="17"/>
@@ -461,6 +464,9 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="n"/>
+                                                            <connections>
+                                                                <action selector="countButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVX-uJ-pT9"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -525,13 +531,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iYa-Of-LYx" firstAttribute="top" secondItem="zi1-hy-9Dh" secondAttribute="bottom" constant="10" id="1DH-HZ-RC9"/>
-                            <constraint firstItem="zi1-hy-9Dh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="DEo-9g-YNI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zi1-hy-9Dh" secondAttribute="trailing" constant="26" id="2pp-Ha-SO8"/>
+                            <constraint firstItem="zi1-hy-9Dh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="DEo-9g-YNI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iYa-Of-LYx" secondAttribute="trailing" constant="26" id="LG2-Ly-26c"/>
                             <constraint firstItem="zi1-hy-9Dh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="edz-1R-OXD"/>
                             <constraint firstAttribute="bottom" secondItem="mzl-hQ-nOY" secondAttribute="bottom" constant="20" id="hL8-9r-aNQ"/>
                             <constraint firstItem="mzl-hQ-nOY" firstAttribute="top" secondItem="iYa-Of-LYx" secondAttribute="bottom" id="hb3-jT-AtU"/>
                             <constraint firstItem="mzl-hQ-nOY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="jDj-Ab-nDI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zi1-hy-9Dh" secondAttribute="trailing" constant="16" id="krf-Yz-XPg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mzl-hQ-nOY" secondAttribute="trailing" constant="26" id="t8W-Gg-SeH"/>
                             <constraint firstItem="iYa-Of-LYx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="wq9-5O-yu3"/>
                         </constraints>
@@ -539,7 +545,8 @@
                     <connections>
                         <outlet property="allButton" destination="P4k-of-MIo" id="mJw-ze-nk0"/>
                         <outlet property="bottomTableView" destination="yAF-XS-Rdo" id="34X-Jf-Zsk"/>
-                        <outlet property="cancelButton" destination="LEe-qh-gx0" id="NKu-Pw-Pze"/>
+                        <outlet property="bottomView" destination="mzl-hQ-nOY" id="1Vs-Qb-SlA"/>
+                        <outlet property="cancelButton" destination="LEe-qh-gx0" id="UAx-eH-CMX"/>
                         <outlet property="iMacButton" destination="tGl-be-VA7" id="tc5-yY-nMx"/>
                         <outlet property="iPadButton" destination="ukS-We-O2S" id="LYJ-AL-d3q"/>
                         <outlet property="iPadLabel" destination="ZQ3-jD-3A1" id="zKm-Nv-i8m"/>
