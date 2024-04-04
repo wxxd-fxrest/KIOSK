@@ -35,18 +35,41 @@ class ViewController: UIViewController, UITableViewDataSource {
         if sender == macButton{
             //mac 버튼 눌림
             //print("mac 버튼 눌림")
+            macMiniButton.isHidden = false
+            allButton.setTitle("전체", for: .normal)
+            macBookButton.setTitle("MacBook", for: .normal)
+            iMacButton.setTitle("iMac", for: .normal)
+            macMiniButton.setTitle("Mac Mini", for: .normal)
+            didTappedProductBtn(allButton)
             
         }else if sender == iPhoneButton{
             //phone 버튼 눌림
             //print("iphone 버튼 눌림")
+            macMiniButton.isHidden = false
+            allButton.setTitle("전체", for: .normal)
+            macBookButton.setTitle("iPhone 15 Pro", for: .normal)
+            iMacButton.setTitle("iPhone 15", for: .normal)
+            macMiniButton.setTitle("iPhone SE", for: .normal)
+            didTappedProductBtn(allButton)
             
         }else if sender == iPadButton{
             //pad 버튼 눌림
             //print("ipad 버튼 눌림")
+            macMiniButton.isHidden = false
+            allButton.setTitle("전체", for: .normal)
+            macBookButton.setTitle("iPad Air", for: .normal)
+            iMacButton.setTitle("iPad", for: .normal)
+            macMiniButton.setTitle("iPad Pro", for: .normal)
+            didTappedProductBtn(allButton)
             
         }else if sender == watchButton{
             //watch 버튼 눌림
             //print("watch 버튼 눌림")
+            allButton.setTitle("전체", for: .normal)
+            macBookButton.setTitle("Series 9", for: .normal)
+            iMacButton.setTitle("Ultra 2", for: .normal)
+            macMiniButton.isHidden = true
+            didTappedProductBtn(allButton)
             
         }
     }
@@ -75,11 +98,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         for button in productBtns {
             button.backgroundColor = UIColor.white
             button.titleLabel?.textColor = .black
+            button.setTitleColor(.black, for: .normal)
         }
         
         // 선택된 버튼의 배경은 검은색, 텍스트는 흰색으로 설정
         sender.backgroundColor = UIColor.black
         sender.setTitleColor(.white, for: .normal)
+        sender.titleLabel?.textColor = .white
+        
         //clicked
     }
     
