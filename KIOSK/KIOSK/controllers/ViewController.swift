@@ -139,6 +139,9 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
             }else if(selectedbtn==4){
                 print("Watch 전체")
+                testitemArray = myDataManager.itemArray
+                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+                testitemArray = myDataManager.itemsVariety(forVariety: "Watch", arr: testitemArray)
             }
         }else if(sender == macBookButton){
             if(selectedbtn==1){
@@ -183,7 +186,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 //print("Mac Mini")
             }
         }
-        //middleCollectionView.reloadData()
+        middleCollectionView.reloadData()
     }
     
     // ******* 나연님 코드 *******
@@ -216,6 +219,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
         configureUIMid()
         configureUI()
         setupDatas()
@@ -519,7 +523,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
             fatalError("Unable to dequeue MyCustomCell")
         }
-        setupCollectionView()
         
         // testitemArray에서 안전하게 아이템 추출
         guard indexPath.row < testitemArray.count else {
