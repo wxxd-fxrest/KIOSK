@@ -311,7 +311,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     func setupDatas() {
         //수정하기
         myDataManager.makeItemData()
-        myDataManager.updateItemVariety()
         newitemArray = myDataManager.getItemDate()
     }
     

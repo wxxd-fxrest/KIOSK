@@ -17,7 +17,7 @@ class SecondViewController: UIViewController {
     
     // MARK: - Data
     var itemArray: [appleItem] = [
-        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "StarLightColor", count: 1),
+        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "StarLightColor", count: 1, rank: 1),
     ]
     
     
