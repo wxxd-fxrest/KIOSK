@@ -106,6 +106,11 @@ class DataManager {
     func itemsVariety(forVariety variety: String) -> [appleItem] {
             return itemArray.filter { $0.variety == variety }
     }
+    /*
+    func itemsRank(forVariety rank : Int) -> [appleItem] {
+            return itemArray.filter { $0.rank == rank }
+    }
+    */
     
     func getItemDate() -> [appleItem] {
         return itemArray

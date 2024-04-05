@@ -121,70 +121,55 @@ class ViewController: UIViewController, UITableViewDataSource {
         if(sender==allButton){
             if(selectedbtn==1){
                 print("Mac 전체")
-                midPageCount = 2
-                
-                //selectedbtn2 = 1
-                //middleTableView.reloadData()
-                
+             
             }else if(selectedbtn==2){
                 print("iPhone 전체")
-                midPageCount = 2
-                
-                //selectedbtn2 = 2
-                //middleTableView.reloadData()
                 
             }else if(selectedbtn==3){
                 print("iPad 전체")
-                midPageCount = 2
                 
             }else if(selectedbtn==4){
                 print("Watch 전체")
-                midPageCount = 2
+    
             }
         }else if(sender == macBookButton){
             if(selectedbtn==1){
                 print("MacBook")
-                midPageCount = 1
                 
             }else if(selectedbtn==2){
                 print("iPhone 15 Pro")
-                midPageCount = 1
                 
             }else if(selectedbtn==3){
                 print("iPad Air")
-                midPageCount = 1
                 
             }else if(selectedbtn==4){
                 print("Series 9")
-                midPageCount = 1
+               
             }
         }else if(sender == iMacButton){
             if(selectedbtn==1){
                 print("iMac")
-                midPageCount = 1
+                
             }else if(selectedbtn==2){
                 print("iPhone 15")
-                midPageCount = 1
                 
             }else if(selectedbtn==3){
                 print("iPad")
-                midPageCount = 1
+            
             }else if(selectedbtn==4){
                 print("Ultra 2")
-                midPageCount = 1
+               
             }
         }else if(sender == macMiniButton){
             if(selectedbtn==1){
                 print("Mac Mini")
-                midPageCount = 1
                 
             }else if(selectedbtn==2){
                 print("iPhone SE")
-                midPageCount = 1
-                
+   
             }else if(selectedbtn==3){
                 print("iPad Pro")
-                midPageCount = 1
+
                 
             }else if(selectedbtn==4){
                 //print("Mac Mini")
@@ -513,7 +498,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return itemArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -522,6 +507,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             fatalError("Unable to dequeue MyCustomCell")
         }
         setupCollectionView()
+        let item = itemArray[indexPath.row]
+        cell.black.text = "₩ " + formatCurrency(amount: item.price)!
+        cell.white.text = item.name
+        cell.image.image = UIImage(named: "imac")
+        print(item.name)
         
         print("cell")
         
@@ -538,4 +528,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         self.middleCollectionView.collectionViewLayout = layout
     }
 }
+
+
+    
 
