@@ -193,12 +193,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // 임시 데이터
     var itemArray: [appleItem] = [
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1)
+        appleItem(name: "Mac Mini", variety: "Mac", price: 850000, color: "SilverColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini", variety: "Mac", price: 850000, color: "SpaceGrayColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini", variety: "Mac", price: 850000, color: "StarLightColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini", variety: "Mac", price: 850000, color: "MidnightColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini", variety: "Mac", price: 850000, color: "SilverColor", count: 3, rank: 1)
     ]
-    
     
     //테스트 공간
     var newitemArray: [appleItem] = []
@@ -233,45 +233,71 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemArray.count
+    func addItem(_ newItem: appleItem) {
+        if let existingItemIndex = itemArray.firstIndex(where: { $0.name == newItem.name && $0.color == newItem.color }) {
+            // 이미 있는 요소인 경우 count를 합침
+            itemArray[existingItemIndex].count += newItem.count
+        } else {
+            // 새로운 요소인 경우 배열에 추가
+            itemArray.append(newItem)
+        }
     }
     
+    // 고침
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // itemArray 내부 구조체의 count가 1 이상인 경우만 포함
+        return itemArray.count
+    }
+    // 고침
+    
+    // 고침
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
         
-        // color에 따라 이미지 설정
+        // itemArray에서 현재 indexPath에 해당하는 요소 가져오기
         let item = itemArray[indexPath.row]
         
-        switch item.color {
-        case "Silver":
-            cell.buyColorInCell.image = UIImage(named: "silver")
-        case "Space Gray":
-            cell.buyColorInCell.image = UIImage(named: "space gray")
-        case "Starlight":
-            cell.buyColorInCell.image = UIImage(named: "starlight")
-        case "Midnight":
-            cell.buyColorInCell.image = UIImage(named: "midnight")
-        default:
-            // 기본 이미지 설정
-            cell.buyColorInCell.image = UIImage(named: "mango")
+        // item의 count가 1 이상인 경우에만 처리
+        if item.count > 0 {
+            // color에 따라 이미지 설정
+            switch item.color {
+            case "SilverColor":
+                cell.buyColorInCell.image = UIImage(named: "silver")
+            case "SpaceGrayColor":
+                cell.buyColorInCell.image = UIImage(named: "space gray")
+            case "StarLightColor":
+                cell.buyColorInCell.image = UIImage(named: "starlight")
+            case "MidnightColor":
+                cell.buyColorInCell.image = UIImage(named: "midnight")
+            default:
+                // 기본 이미지 설정
+                cell.buyColorInCell.image = UIImage(named: "starlight")
+            }
+            
+            let totalPriceForRow = item.price * item.count
+            cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
+            cell.buyCountInCell.setTitle(String(item.count), for: .normal)
+            cell.buyNameInCell.text = item.name
+            
+            // cell의 buyColorInCell 이미지뷰를 원형으로 설정
+            cell.buyColorInCell.layer.cornerRadius = cell.buyColorInCell.frame.height / 2
+            cell.buyColorInCell.layer.masksToBounds = true
+        } else {
+            // count가 0인 경우 셀을 비움
+            cell.buyColorInCell.image = nil
+            cell.buyPriceInCell.text = nil
+            cell.buyCountInCell.setTitle(nil, for: .normal)
+            cell.buyNameInCell.text = nil
         }
-        
-        let totalPriceForRow = item.price * item.count
-        cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
-        cell.buyCountInCell.setTitle(String(item.count), for: .normal)
-        cell.buyNameInCell.text = item.name
-        
-        // cell의 buyColorInCell 이미지뷰를 원형으로 설정
-        cell.buyColorInCell.layer.cornerRadius = cell.buyColorInCell.frame.height / 2
-        cell.buyColorInCell.layer.masksToBounds = true
         
         // 결제 가능 여부 확인
         checkPaymentAvailability()
         
         return cell
-        
     }
+    
+    // 고침
+
     func configureUIMid(){
         middleCollectionView.dataSource = self
     }
@@ -494,6 +520,16 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         // 결제 가능 여부 확인
         checkPaymentAvailability()
     }
+    
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+        addItem(items: [appleItem])
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+        checkPaymentAvailability()
+      }
+    
     func checkPaymentAvailability() {
         print(itemArray)
         if itemArray.isEmpty {
