@@ -357,6 +357,14 @@ class ViewController: UIViewController, UITableViewDataSource {
                 return cell
             }
     }
+    
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+        
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+    }
    
    
 
@@ -625,16 +633,6 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 //
 //  Created by Seungseop Lee on 4/1/24.
 //
-
-/*
-    func didSelectBasket(with items: [appleItem]) {
-        print("SecondViewController -> ViewController: \(items)")
-        
-        itemArray.append(contentsOf: items)
-        bottomTableView.reloadData()
-        totalPriceUpdate()
-    }
-*/
 
     
     
