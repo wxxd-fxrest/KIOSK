@@ -36,4 +36,14 @@ class MiddleCell: UICollectionViewCell {
         black.layer.masksToBounds = true
     }
     
+    private func setupTapGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(contentTapped))
+        content.addGestureRecognizer(tapGesture)
+        content.isUserInteractionEnabled = true // UIView는 기본적으로 사용자 상호작용이 비활성화되어 있으므로 활성화합니다.
+    }
+    
+    @objc func contentTapped() {
+        // content UIView가 탭되었을 때 수행할 작업
+        print("Content View Tapped")
+    }
 }

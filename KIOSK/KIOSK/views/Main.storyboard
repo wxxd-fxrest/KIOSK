@@ -291,6 +291,7 @@
                                                                 <constraint firstAttribute="width" constant="90" id="OMN-Hz-Vo6"/>
                                                             </constraints>
                                                         </imageView>
+
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVt-qu-qXa">
                                                             <rect key="frame" x="12" y="129.33333333333334" width="197" height="30"/>
                                                             <subviews>
@@ -305,6 +306,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" name="BasicColor"/>
+
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="1xf-9M-JFl"/>
                                                                 <constraint firstItem="16V-TX-cWh" firstAttribute="centerY" secondItem="AVt-qu-qXa" secondAttribute="centerY" id="Fea-1g-8uj"/>
@@ -312,7 +314,9 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mac" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqb-12-q0Z">
+
                                                             <rect key="frame" x="94.666666666666671" y="100" width="32" height="19.333333333333329"/>
+
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -552,17 +556,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnL-Jg-WRT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1691.6030534351144" y="-10.563380281690142"/>
-        </scene>
-        <!--SecondViewController-->
-        <scene sceneID="pOF-H7-mXy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SecondViewCon" storyboardName="SecondStoryboard" referencedIdentifier="SecondViewController" id="HRj-oD-4ld" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="KBn-7O-DtS"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="grx-wc-5Kg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1691.6030534351144" y="-45.774647887323944"/>
+            <point key="canvasLocation" x="1623" y="-28"/>
         </scene>
     </scenes>
     <resources>
