@@ -193,10 +193,10 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
     
     // 임시 데이터
     var itemArray: [appleItem] = [
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1)
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "SilverColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "StarLightColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "MidnightColor", count: 1, rank: 1),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "SpaceGrayColor", count: 1, rank: 1)
     ]
     
     
@@ -311,7 +311,11 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
     
     func didSelectBasket(with items: [appleItem]) {
         print("SecondViewController -> ViewController: \(items)")
-    }
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+        checkPaymentAvailability()
+       }
     
     func setupDatas() {
         //수정하기
@@ -551,7 +555,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         let storyboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
             
-            destinationVC.itemArray = [appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)] // 데이터 전달
+            destinationVC.itemArray = testitemArray // 데이터 전달
             
             // 모달 프레젠테이션 스타일을 설정할 수 있습니다. 예: .fullScreen, .pageSheet 등
             destinationVC.modalPresentationStyle = .fullScreen // 필요에 따라 조정

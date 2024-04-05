@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "ipadPro.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ipadPro.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

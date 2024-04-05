@@ -210,16 +210,16 @@ class SecondViewController: UIViewController {
         switch selectedColorView {
         case starlightView:
             starlightBackView.layer.borderWidth = 1.0
-            starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            starlightBackView.layer.borderColor = UIColor(named: "StarLightColor")?.cgColor
         case silverView:
             silverBackVIew.layer.borderWidth = 1.0
-            silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            silverBackVIew.layer.borderColor = UIColor(named: "SilverColor")?.cgColor
         case spaceGrayView:
             spaceGrayBackView.layer.borderWidth = 1.0
             spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
         case midnightView:
             midnightBackView.layer.borderWidth = 1.0
-            midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            midnightBackView.layer.borderColor = UIColor(named: "MidnightColor")?.cgColor
         default:
             break
         }
@@ -247,7 +247,7 @@ class SecondViewController: UIViewController {
     // MARK: - Quantity change
     @objc func decrementQuantity() {
         guard !itemArray.isEmpty else { return }
-        if itemArray[0].count > 1 {
+        if itemArray[0].count > 0 {
             itemArray[0].count -= 1
             QuantityLabel.text = "\(itemArray[0].count)"
             print("\(itemArray[0].count)")

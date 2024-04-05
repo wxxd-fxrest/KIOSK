@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "ipadAir.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ipadAir.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
