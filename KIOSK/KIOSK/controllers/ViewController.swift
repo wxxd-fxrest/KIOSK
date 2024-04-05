@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, SecondViewControllerDelegate {
     
     
     // ******* 나연님 코드 *******
@@ -271,7 +271,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     func configureUIMid(){
         middleCollectionView.dataSource = self
         middleCollectionView.delegate = self
-        
     }
     
     // 초기 설정
@@ -556,6 +555,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             
             // 모달 프레젠테이션 스타일을 설정할 수 있습니다. 예: .fullScreen, .pageSheet 등
             destinationVC.modalPresentationStyle = .fullScreen // 필요에 따라 조정
+            destinationVC.delegate = self
             
             // 뷰 컨트롤러를 모달로 표시합니다.
             self.present(destinationVC, animated: true, completion: nil)
