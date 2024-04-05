@@ -14,7 +14,7 @@ protocol SecondViewControllerDelegate: AnyObject {
 class SecondViewController: UIViewController {
     weak var delegate: SecondViewControllerDelegate?
 
-    
+
     // MARK: - Data
     var itemArray: [appleItem] = []
     
@@ -58,8 +58,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        print("\(itemArray)")
         // MARK: BackGround
         if let backgroundColor = UIColor(named: "PageBackgroundColor") {
             view.backgroundColor = backgroundColor
@@ -78,6 +77,12 @@ class SecondViewController: UIViewController {
         
         
         // MARK: - Color Buttons Shadow & Color
+        if let selectedColor = itemArray.first?.color {
+            addBorderToSelectedColorView(selectedColor)
+        } else {
+            addBorderToSelectedColorView("StarLightColor")
+        }
+        
         makeViewRound(starlightBackView)
         makeViewRound(starlightView)
         starlightView.backgroundColor = UIColor(named: "StarLightColor")
@@ -146,6 +151,25 @@ class SecondViewController: UIViewController {
         plusButton.addTarget(self, action: #selector(incrementQuantity), for: .touchUpInside)
     }
     
+    func addBorderToSelectedColorView(_ colorName: String) {
+        switch colorName {
+        case "StarLightColor":
+            starlightBackView.layer.borderWidth = 1.0
+            starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+        case "SilverColor":
+            silverBackVIew.layer.borderWidth = 1.0
+            silverBackVIew.layer.borderColor = UIColor(named: "SilverColor")?.cgColor
+        case "SpaceGrayColor":
+            spaceGrayBackView.layer.borderWidth = 1.0
+            spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+        case "MidnightColor":
+            midnightBackView.layer.borderWidth = 1.0
+            midnightBackView.layer.borderColor = UIColor(named: "MidnightColor")?.cgColor
+        default:
+            break
+        }
+    }
+    
     // MARK: - Image Set Controller
     func RoundbackgroundView(_ view: UIView) {
         view.layer.cornerRadius = view.frame.size.width / 2
@@ -169,7 +193,7 @@ class SecondViewController: UIViewController {
     
     // MARK: - Button Shadow
     func addShadow(to view: UIView) {
-        view.layer.shadowColor = UIColor.black.cgColor 
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.masksToBounds = false
         view.layer.shadowOffset = CGSize(width: 0, height: 2)
         view.layer.shadowRadius = 1
@@ -196,7 +220,7 @@ class SecondViewController: UIViewController {
     func addTapGesture(to view: UIView, withColor colorName: String) {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(colorViewTapped(_:)))
         view.addGestureRecognizer(tapGesture)
-        view.tag = colorName.hash
+        view.accessibilityIdentifier = colorName // 색상 뷰에 accessibilityIdentifier 설정
         makeViewRound(view)
     }
 
@@ -207,31 +231,30 @@ class SecondViewController: UIViewController {
         
         resetBorderForAllColorViews()
         
-        switch selectedColorView {
-        case starlightView:
-            starlightBackView.layer.borderWidth = 1.0
-            starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
-        case silverView:
-            silverBackVIew.layer.borderWidth = 1.0
-            silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
-        case spaceGrayView:
-            spaceGrayBackView.layer.borderWidth = 1.0
-            spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
-        case midnightView:
-            midnightBackView.layer.borderWidth = 1.0
-            midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
-        default:
-            break
-        }
-
-        guard let selectedColorName = selectedColorView.accessibilityIdentifier else {
-            return
-        }
-        print("Item with color \(selectedColorName)")
-
-        if let index = itemArray.firstIndex(where: { $0.color != selectedColorName }) {
-            itemArray[index].color = selectedColorName
-            print("Item with color \(selectedColorName) updated: \(itemArray[index])")
+        // 색상 뷰의 accessibilityIdentifier를 사용하여 선택된 색상 식별
+        if let selectedColorName = selectedColorView.accessibilityIdentifier {
+            switch selectedColorName {
+            case "StarLightColor":
+                starlightBackView.layer.borderWidth = 1.0
+                starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            case "SilverColor":
+                silverBackVIew.layer.borderWidth = 1.0
+                silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            case "SpaceGrayColor":
+                spaceGrayBackView.layer.borderWidth = 1.0
+                spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            case "MidnightColor":
+                midnightBackView.layer.borderWidth = 1.0
+                midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            default:
+                break
+            }
+            
+            // 선택된 색상을 itemArray에 반영
+            if let index = itemArray.firstIndex(where: { $0.color != selectedColorName }) {
+                itemArray[index].color = selectedColorName
+                print("Item with color \(selectedColorName) updated: \(itemArray[index])")
+            }
         }
     }
 
@@ -247,7 +270,7 @@ class SecondViewController: UIViewController {
     // MARK: - Quantity change
     @objc func decrementQuantity() {
         guard !itemArray.isEmpty else { return }
-        if itemArray[0].count > 1 {
+        if itemArray[0].count > 0 {
             itemArray[0].count -= 1
             QuantityLabel.text = "\(itemArray[0].count)"
             print("\(itemArray[0].count)")
@@ -264,11 +287,27 @@ class SecondViewController: UIViewController {
     }
     
     
-    // MARK: - Basket Button Pressed
-    @IBAction func basketButtonPressed(_ sender: UIButton) {
-        print(itemArray, "전달전")
-        delegate?.didSelectBasket(with: itemArray)
-        self.dismiss(animated: true, completion: nil)
-    }
+//    // MARK: - Basket Button Pressed
+//    @IBAction func basketButtonPressed(_ sender: UIButton) {
+//        // Deliver the items to the delegate
+//        delegate?.didSelectBasket(with: itemArray)
+//
+//        // Dismiss the presented view controller with a custom transition
+//        dismissModalViewControllerWithAnimation()
+//    }
     
+    @IBAction func basketButtonPressed(_ sender: UIButton) {
+        delegate?.didSelectBasket(with: itemArray) // Pass the itemArray to the delegate
+        dismiss(animated: true, completion: nil) // Dismiss the SecondViewController
+    }
+
+    private func dismissModalViewControllerWithAnimation() {
+        UIView.animate(withDuration: 0.3, animations: {
+            // Move the modal view controller downward
+            self.view.frame = CGRect(x: 0, y: self.view.frame.size.height, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        }) { (finished) in
+            // Dismiss the modal view controller after the animation completes
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
 }
