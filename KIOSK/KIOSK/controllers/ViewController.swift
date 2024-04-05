@@ -139,12 +139,7 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
     // ******* 나연님 코드 *******
     
     // 임시 데이터
-    var itemArray: [appleItem] = [
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1)
-    ]
+    var itemArray: [appleItem] = []
     
     
     //테스트 공간
@@ -269,7 +264,11 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
     
     func didSelectBasket(with items: [appleItem]) {
         print("SecondViewController -> ViewController: \(items)")
-    }
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+        checkPaymentAvailability()
+      }
     
     func setupDatas() {
         //수정하기
