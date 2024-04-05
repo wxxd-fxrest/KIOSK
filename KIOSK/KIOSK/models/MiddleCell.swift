@@ -14,6 +14,7 @@ class MiddleCell: UICollectionViewCell {
     @IBOutlet weak var black: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var content: UIView!
+    @IBOutlet weak var cellPriceButtonView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,7 @@ class MiddleCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         setupRoundedCorners()
+        cellPriceButtonView.layer.cornerRadius = 12
     }
     
     private func setupRoundedCorners() {
