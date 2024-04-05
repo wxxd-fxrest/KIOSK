@@ -17,4 +17,5 @@ class BottomCell: UITableViewCell {
     func setup() {
         buyColorInCell.layer.cornerRadius = 15
     }
+    
 }

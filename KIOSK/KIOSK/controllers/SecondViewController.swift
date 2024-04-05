@@ -56,6 +56,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var BasketButton: UIButton!
 
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +77,11 @@ class SecondViewController: UIViewController {
         // MARK: - Image Set
         RoundbackgroundView(roundBackgroundView)
         
+        itemImage.layer.shadowColor = UIColor.black.cgColor
+        itemImage.layer.shadowOpacity = 0.5
+        itemImage.layer.shadowOffset = CGSize(width: 0, height: 2)
+        itemImage.layer.shadowRadius = 4
+        
         
         // MARK: - Color Buttons Shadow & Color
         makeViewRound(starlightBackView)
@@ -93,11 +99,6 @@ class SecondViewController: UIViewController {
         makeViewRound(midnightBackView)
         makeViewRound(midnightView)
         midnightView.backgroundColor = UIColor(named: "MidnightColor")
-
-        addShadow(to: starlightView)
-        addShadow(to: silverView)
-        addShadow(to: spaceGrayView)
-        addShadow(to: midnightView)
         
         addTapGesture(to: starlightView, withColor: "StarLightColor")
         addTapGesture(to: silverView, withColor: "SilverColor")
@@ -144,19 +145,37 @@ class SecondViewController: UIViewController {
         
         minusButton.addTarget(self, action: #selector(decrementQuantity), for: .touchUpInside)
         plusButton.addTarget(self, action: #selector(incrementQuantity), for: .touchUpInside)
+        
+        // Set initial border for the "starlight" color view
+        addBorderToSelectedColorView("StarLightColor")
     }
+    
     
     // MARK: - Image Set Controller
     func RoundbackgroundView(_ view: UIView) {
         view.layer.cornerRadius = view.frame.size.width / 2
-        view.clipsToBounds = true
+        view.clipsToBounds = false // Allow shadow to be visible outside bounds
+        
+        // Add shadow
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 2, height: 2)
+        view.layer.shadowRadius = 2
     }
     
-    
+
     // MARK: - Bottom View Controller
     func bottomViewRound(_ view: UIView, withRadius radius: CGFloat) {
         view.layer.cornerRadius = radius
         view.clipsToBounds = true
+        
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: -4)
+        view.layer.shadowRadius = 4
+        view.layer.masksToBounds = false
+        
+        view.layer.shadowPath = UIBezierPath(roundedRect: view.bounds, cornerRadius: radius).cgPath
     }
     
     
@@ -166,16 +185,6 @@ class SecondViewController: UIViewController {
         view.clipsToBounds = true
     }
 
-    
-    // MARK: - Button Shadow
-    func addShadow(to view: UIView) {
-        view.layer.shadowColor = UIColor.black.cgColor 
-        view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowRadius = 1
-        view.layer.shadowOpacity = 0.6
-    }
-    
     
     // MARK: - Item 이름에 맞는 이미지 매칭
     private func getImage(for itemName: String) -> UIImage? {
@@ -204,22 +213,18 @@ class SecondViewController: UIViewController {
         guard let selectedColorView = sender.view else {
             return
         }
-        
+
         resetBorderForAllColorViews()
-        
+
         switch selectedColorView {
         case starlightView:
-            starlightBackView.layer.borderWidth = 1.0
-            starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            addBorderToSelectedColorView("StarLightColor")
         case silverView:
-            silverBackVIew.layer.borderWidth = 1.0
-            silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            addBorderToSelectedColorView("SilverColor")
         case spaceGrayView:
-            spaceGrayBackView.layer.borderWidth = 1.0
-            spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            addBorderToSelectedColorView("SpaceGrayColor")
         case midnightView:
-            midnightBackView.layer.borderWidth = 1.0
-            midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+            addBorderToSelectedColorView("MidnightColor")
         default:
             break
         }
@@ -235,6 +240,32 @@ class SecondViewController: UIViewController {
         }
     }
 
+    func addBorderToSelectedColorView(_ colorName: String) {
+        UIView.animate(withDuration: 0.3) {
+            switch colorName {
+            case "StarLightColor":
+                self.starlightBackView.layer.borderWidth = 1.0
+                self.starlightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+                self.roundBackgroundView.backgroundColor = UIColor(named: "StarLightColor")
+                self.roundBackgroundView.alpha = 1.0
+            case "SilverColor":
+                self.silverBackVIew.layer.borderWidth = 1.0
+                self.silverBackVIew.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+                self.roundBackgroundView.backgroundColor = UIColor(named: "SilverColor")
+                self.roundBackgroundView.alpha = 1.0
+            case "SpaceGrayColor":
+                self.spaceGrayBackView.layer.borderWidth = 1.0
+                self.spaceGrayBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+                self.roundBackgroundView.backgroundColor = UIColor(named: "SpaceGrayColor")?.withAlphaComponent(0.5) // Adjust opacity here
+            case "MidnightColor":
+                self.midnightBackView.layer.borderWidth = 1.0
+                self.midnightBackView.layer.borderColor = UIColor(named: "SpaceGrayColor")?.cgColor
+                self.roundBackgroundView.backgroundColor = UIColor(named: "MidnightColor")?.withAlphaComponent(0.5) // Adjust opacity here
+            default:
+                break
+            }
+        }
+    }
 
     func resetBorderForAllColorViews() {
         starlightBackView.layer.borderWidth = 0

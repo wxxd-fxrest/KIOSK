@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class MiddleCell: UICollectionViewCell {
     
     @IBOutlet weak var white: UILabel!
@@ -28,10 +27,9 @@ class MiddleCell: UICollectionViewCell {
     }
     
     private func setupRoundedCorners() {
-        // 모서리 둥글게 설정
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        // 모서리 둥글게 설정
+        
         black.layer.cornerRadius = 10
         black.layer.masksToBounds = true
     }
@@ -39,11 +37,10 @@ class MiddleCell: UICollectionViewCell {
     private func setupTapGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(contentTapped))
         content.addGestureRecognizer(tapGesture)
-        content.isUserInteractionEnabled = true // UIView는 기본적으로 사용자 상호작용이 비활성화되어 있으므로 활성화합니다.
+        content.isUserInteractionEnabled = true
     }
     
     @objc func contentTapped() {
-        // content UIView가 탭되었을 때 수행할 작업
         print("Content View Tapped")
     }
 }

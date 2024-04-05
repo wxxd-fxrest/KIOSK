@@ -9,6 +9,7 @@ import Foundation
 
 class DataManager {
     var itemArray: [appleItem] = []
+    
     var Mac = [
         "MacBook",
         "iMac",
