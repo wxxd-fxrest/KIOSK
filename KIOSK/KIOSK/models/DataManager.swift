@@ -47,7 +47,7 @@ class DataManager {
         appleItem(name: "Mac Mini", variety: "Mac", price: 1790000, color: "Silver", count: 0, rank: 3)
         appleItem(name: "Mac Mini", variety: "Mac", price: 1790000, color: "Space Gray", count: 0, rank: 3)
         
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Midnight", count: 0, rank: 1)
+        appleItem(name: "iPhonem 15 Pro", variety: "iPhone", price: 1550000, color: "Midnight", count: 0, rank: 1)
         appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Starlight", count: 0, rank: 1)
         appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Silver", count: 0, rank: 1)
         appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 0, rank: 1)

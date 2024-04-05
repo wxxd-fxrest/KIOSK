@@ -240,13 +240,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         let item = itemArray[indexPath.row]
         
         switch item.color {
-        case "Silver":
+        case "SilverColor":
             cell.buyColorInCell.image = UIImage(named: "silver")
-        case "Space Gray":
+        case "SpaceGrayColor":
             cell.buyColorInCell.image = UIImage(named: "space gray")
-        case "Starlight":
+        case "StarLightColor":
             cell.buyColorInCell.image = UIImage(named: "starlight")
-        case "Midnight":
+        case "MidnightColor":
             cell.buyColorInCell.image = UIImage(named: "midnight")
         default:
             // 기본 이미지 설정
@@ -312,6 +312,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         //수정하기
         myDataManager.makeItemData()
         newitemArray = myDataManager.getItemDate()
+    }
+    
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+        
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+        checkPaymentAvailability()
     }
     
     // 갯수 버튼 누르면
@@ -496,11 +505,13 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         print(itemArray)
         if itemArray.isEmpty {
             // itemArray가 비어있으면 결제하기 버튼 비활성화
+            cancelButton.isEnabled = false
             payButton.isEnabled = false
             payButton.backgroundColor = UIColor.lightGray
             payButton.setTitleColor(.black, for: .normal)
         } else {
             // itemArray에 내용이 있으면 결제하기 버튼 활성화
+            cancelButton.isEnabled = true
             payButton.isEnabled = true
             payButton.backgroundColor = .black
             payButton.setTitleColor(.white, for: .normal)
