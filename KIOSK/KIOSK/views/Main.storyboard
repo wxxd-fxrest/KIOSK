@@ -339,7 +339,6 @@
                                                     <outlet property="content" destination="7L2-45-Rtx" id="xaU-ma-gD4"/>
                                                     <outlet property="image" destination="wcZ-oH-KrA" id="xot-KU-4WF"/>
                                                     <outlet property="white" destination="iqb-12-q0Z" id="DZc-oa-URo"/>
-                                                    <segue destination="sQX-lj-v3J" kind="show" identifier="showSecondViewController" id="Twx-20-leG"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

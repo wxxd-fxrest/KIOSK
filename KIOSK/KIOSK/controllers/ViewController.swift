@@ -227,10 +227,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         testitemArray = myDataManager.itemArray
         testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
         testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
-        for i in testitemArray {
-            print(i, i.name)
-        }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -313,12 +309,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         return formatter.string(from: NSNumber(value: amount))
     }
     
+    
     func didSelectBasket(with items: [appleItem]) {
         print("SecondViewController -> ViewController: \(items)")
-        itemArray.append(contentsOf: items)
-        bottomTableView.reloadData()
-        totalPriceUpdate()
-        checkPaymentAvailability()
     }
     
     func setupDatas() {
@@ -556,14 +549,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        /*
         let storyboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
+            
             destinationVC.itemArray = [appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)] // 데이터 전달
-            destinationVC.modalPresentationStyle = .fullScreen // 풀스크린으로 설정
-            self.present(destinationVC, animated: true, completion: nil) // show 방식으로 화면 전환
+            
+            // 모달 프레젠테이션 스타일을 설정할 수 있습니다. 예: .fullScreen, .pageSheet 등
+            destinationVC.modalPresentationStyle = .fullScreen // 필요에 따라 조정
+            
+            // 뷰 컨트롤러를 모달로 표시합니다.
+            self.present(destinationVC, animated: true, completion: nil)
         }
-        */
     }
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()

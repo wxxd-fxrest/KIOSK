@@ -58,6 +58,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(itemArray,"값받음")
         
         // MARK: BackGround
         if let backgroundColor = UIColor(named: "PageBackgroundColor") {
@@ -265,6 +266,7 @@ class SecondViewController: UIViewController {
     
     // MARK: - Basket Button Pressed
     @IBAction func basketButtonPressed(_ sender: UIButton) {
+        print(itemArray, "전달전")
         delegate?.didSelectBasket(with: itemArray)
         self.dismiss(animated: true, completion: nil)
         //navigationController?.popViewController(animated: true)
