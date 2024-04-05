@@ -214,7 +214,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var bottomView: UIView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUIMid()
@@ -275,16 +274,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // 초기 설정
     func configureUI() {
-        view.backgroundColor = .lightGray
-        bottomView.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(named: "PageBackgroundColor")
+        bottomView.backgroundColor =  UIColor(named: "PageBackgroundColor")
         bottomView.layer.cornerRadius = 10
         bottomTableView.dataSource = self
         bottomTableView.rowHeight = 32
         cancelButton.setTitle("취 소", for: .normal)
         cancelButton.layer.cornerRadius = 18
         cancelButton.tintColor = .black
-        cancelButton.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        payButton.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        cancelButton.backgroundColor =  UIColor(named: "SilverColor")
+        payButton.backgroundColor =  UIColor(named: "SilverColor")
         payButton.tintColor = .black
         payButton.setTitle("결제하기", for: .normal)
         payButton.layer.cornerRadius = 18
@@ -494,17 +493,18 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func checkPaymentAvailability() {
         print(itemArray)
         if itemArray.isEmpty {
-            // itemArray가 비어있으면 결제하기 버튼 비활성화
-            cancelButton.isEnabled = false
-            payButton.isEnabled = false
-            payButton.backgroundColor = UIColor.lightGray
-            payButton.setTitleColor(.black, for: .normal)
+          // itemArray가 비어있으면 결제하기 버튼 비활성화
+          cancelButton.isEnabled = false
+          payButton.isEnabled = false
+          payButton.backgroundColor = UIColor.lightGray
+          payButton.setTitleColor(.black, for: .normal)
         } else {
-            // itemArray에 내용이 있으면 결제하기 버튼 활성화
-            cancelButton.isEnabled = true
-            payButton.isEnabled = true
-            payButton.backgroundColor = .black
-            payButton.setTitleColor(.white, for: .normal)
+          // itemArray에 내용이 있으면 결제하기 버튼 활성화
+          cancelButton.isEnabled = true
+          payButton.isEnabled = true
+          payButton.backgroundColor = .black
+          payButton.setTitleColor(.white, for: .normal)
+
         }
     }
 }
@@ -551,13 +551,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = .zero
-        layout.minimumLineSpacing = 5 //as per your requirement
-        layout.minimumInteritemSpacing = 0 //as per your requirement
+        layout.minimumLineSpacing = 8 // Vertical spacing between cells
+        layout.minimumInteritemSpacing = 8 // Horizontal spacing between cells
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: self.middleCollectionView.frame.width / 2, height: 160)
+        let itemWidth = (self.middleCollectionView.frame.width - 8) / 2 // Width of each item
+        layout.itemSize = CGSize(width: itemWidth, height: 190)
         self.middleCollectionView.collectionViewLayout = layout
     }
+
 }
 
 
