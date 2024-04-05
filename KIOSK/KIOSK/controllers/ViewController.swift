@@ -274,6 +274,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     func configureUIMid(){
         middleCollectionView.dataSource = self
+        middleCollectionView.delegate = self
+        
     }
     
     // 초기 설정
@@ -311,6 +313,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         return formatter.string(from: NSNumber(value: amount))
     }
     
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+        itemArray.append(contentsOf: items)
+        bottomTableView.reloadData()
+        totalPriceUpdate()
+        checkPaymentAvailability()
+    }
     
     func setupDatas() {
         //수정하기
@@ -543,10 +552,19 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         }
         cell.image.image = image
         
-        
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        /*
+        let storyboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
+            destinationVC.itemArray = [appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)] // 데이터 전달
+            destinationVC.modalPresentationStyle = .fullScreen // 풀스크린으로 설정
+            self.present(destinationVC, animated: true, completion: nil) // show 방식으로 화면 전환
+        }
+        */
+    }
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8 // Vertical spacing between cells

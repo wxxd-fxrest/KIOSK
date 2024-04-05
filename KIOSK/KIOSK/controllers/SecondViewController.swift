@@ -266,6 +266,7 @@ class SecondViewController: UIViewController {
     // MARK: - Basket Button Pressed
     @IBAction func basketButtonPressed(_ sender: UIButton) {
         delegate?.didSelectBasket(with: itemArray)
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        //navigationController?.popViewController(animated: true)
     }
 }
