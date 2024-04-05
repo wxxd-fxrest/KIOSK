@@ -31,76 +31,78 @@ class DataManager {
     
     
     func makeItemData() {
-        var count = 0;
-        // MacBook, iMac, Mac Mini
-        let macColors = ["Midnight", "Starlight", "Silver", "Space Gray"]
-        let macBooks = [
-            ("MacBook", 2_390_000),
-            ("iMac", 1_990_000),
-            ("Mac Mini", 1_790_000)
-        ]
         
-        // iPhone
-        let iphoneColors = ["Starlight", "Silver", "Space Gray", "Midnight"]
-        let iphones = [
-            ("iPhone 15 Pro", 1_550_000),
-            ("iPhone 15", 1_250_000),
-            ("iPhone SE", 650_000)
-        ]
+        appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)
+        appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Starlight", count: 0, rank: 1)
+        appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Silver", count: 0, rank: 1)
+        appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Space Gray", count: 0, rank: 1)
         
-        // iPad
-        let ipadColors = ["Starlight", "Silver", "Space Gray", "Midnight"]
-        let ipads = [
-            ("iPad Air", 929_000),
-            ("iPad", 679_000),
-            ("iPad Pro", 1_249_000)
-        ]
+        appleItem(name: "iMac", variety: "Mac", price: 1990000, color: "Midnight", count: 0, rank: 2)
+        appleItem(name: "iMac", variety: "Mac", price: 1990000, color: "Starlight", count: 0, rank: 2)
+        appleItem(name: "iMac", variety: "Mac", price: 1990000, color: "Silver", count: 0, rank: 2)
+        appleItem(name: "iMac", variety: "Mac", price: 1990000, color: "Space Gray", count: 0, rank: 2)
         
-        // Watch
-        let watchColors = ["Starlight", "Silver", "Space Gray", "Midnight"]
-        let watches = [
-            ("Series 9", 599_000),
-            ("Ultra 2", 1_149_000)
-        ]
+        appleItem(name: "Mac Mini", variety: "Mac", price: 1790000, color: "Midnight", count: 0, rank: 3)
+        appleItem(name: "Mac Mini", variety: "Mac", price: 1790000, color: "Starlight", count: 0, rank: 3)
+        appleItem(name: "Mac Mini", variety: "Mac", price: 1790000, color: "Silver", count: 0, rank: 3)
+        appleItem(name: "Mac Mini", variety: "Mac", price: 1790000, color: "Space Gray", count: 0, rank: 3)
         
-        // Combine all products
-        let allProducts = macBooks + iphones + ipads + watches
-        let allColors = macColors + iphoneColors + ipadColors + watchColors
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Midnight", count: 0, rank: 1)
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Starlight", count: 0, rank: 1)
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Silver", count: 0, rank: 1)
+        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 0, rank: 1)
         
-        // Generate items
-        for product in allProducts {
-            for color in allColors {
-                count += 1
-                let newItem = appleItem(name: product.0, variety: "non", price: product.1, color: color, count: 0)
-                itemArray.append(newItem)
-                if count == 4 {
-                    count = 0
-                    break;
-                }
-            }
-        }
+        appleItem(name: "iPhone 15 Pro Max", variety: "iPhone", price: 1900000, color: "Midnight", count: 0, rank: 1)
+        appleItem(name: "iPhone 15 Pro Max", variety: "iPhone", price: 1900000, color: "Starlight", count: 0, rank: 1)
+        appleItem(name: "iPhone 15 Pro Max", variety: "iPhone", price: 1900000, color: "Silver", count: 0, rank: 1)
+        appleItem(name: "iPhone 15 Pro Max", variety: "iPhone", price: 1900000, color: "Space Gray", count: 0, rank: 1)
         
+        appleItem(name: "iPhone 15", variety: "iPhone", price: 1250000, color: "Midnight", count: 0, rank: 2)
+        appleItem(name: "iPhone 15", variety: "iPhone", price: 1250000, color: "Starlight", count: 0, rank: 2)
+        appleItem(name: "iPhone 15", variety: "iPhone", price: 1250000, color: "Silver", count: 0, rank: 2)
+        appleItem(name: "iPhone 15", variety: "iPhone", price: 1250000, color: "Space Gray", count: 0, rank: 2)
+        
+        appleItem(name: "iPhone 15 Plus", variety: "iPhone", price: 1350000, color: "Midnight", count: 0, rank: 2)
+        appleItem(name: "iPhone 15 Plus", variety: "iPhone", price: 1350000, color: "Starlight", count: 0, rank: 2)
+        appleItem(name: "iPhone 15 Plus", variety: "iPhone", price: 1350000, color: "Silver", count: 0, rank: 2)
+        appleItem(name: "iPhone 15 Plus", variety: "iPhone", price: 1350000, color: "Space Gray", count: 0, rank: 2)
+        
+        appleItem(name: "iPhone SE", variety: "iPhone", price: 650000, color: "Midnight", count: 0, rank: 3)
+        appleItem(name: "iPhone SE", variety: "iPhone", price: 650000, color: "Starlight", count: 0, rank: 3)
+        appleItem(name: "iPhone SE", variety: "iPhone", price: 650000, color: "Silver", count: 0, rank: 3)
+        appleItem(name: "iPhone SE", variety: "iPhone", price: 650000, color: "Space Gray", count: 0, rank: 3)
+        
+        appleItem(name: "iPad Mini", variety: "iPad", price: 769000, color: "Midnight", count: 0, rank: 2)
+        appleItem(name: "iPad Mini", variety: "iPad", price: 769000, color: "Starlight", count: 0, rank: 2)
+        appleItem(name: "iPad Mini", variety: "iPad", price: 769000, color: "Silver", count: 0, rank: 2)
+        appleItem(name: "iPad Mini", variety: "iPad", price: 769000, color: "Space Gray", count: 0, rank: 2)
+        
+        appleItem(name: "iPad Air", variety: "iPad", price: 929000, color: "Midnight", count: 0, rank: 1)
+        appleItem(name: "iPad Air", variety: "iPad", price: 929000, color: "Starlight", count: 0, rank: 1)
+        appleItem(name: "iPad Air", variety: "iPad", price: 929000, color: "Silver", count: 0, rank: 1)
+        appleItem(name: "iPad Air", variety: "iPad", price: 929000, color: "Space Gray", count: 0, rank: 1)
+        
+        appleItem(name: "iPad", variety: "iPad", price: 679000, color: "Midnight", count: 0, rank: 2)
+        appleItem(name: "iPad", variety: "iPad", price: 679000, color: "Starlight", count: 0, rank: 2)
+        appleItem(name: "iPad", variety: "iPad", price: 679000, color: "Silver", count: 0, rank: 2)
+        appleItem(name: "iPad", variety: "iPad", price: 679000, color: "Space Gray", count: 0, rank: 2)
+        
+        appleItem(name: "iPad Pro", variety: "iPad", price: 1249000, color: "Midnight", count: 0, rank: 3)
+        appleItem(name: "iPad Pro", variety: "iPad", price: 1249000, color: "Starlight", count: 0, rank: 3)
+        appleItem(name: "iPad Pro", variety: "iPad", price: 1249000, color: "Silver", count: 0, rank: 3)
+        appleItem(name: "iPad Pro", variety: "iPad", price: 1249000, color: "Space Gray", count: 0, rank: 3)
+        
+        appleItem(name: "Series 9", variety: "Watch", price: 599000, color: "Midnight", count: 0, rank: 1)
+        appleItem(name: "Series 9", variety: "Watch", price: 599000, color: "Starlight", count: 0, rank: 1)
+        appleItem(name: "Series 9", variety: "Watch", price: 599000, color: "Silver", count: 0, rank: 1)
+        appleItem(name: "Series 9", variety: "Watch", price: 599000, color: "Space Gray", count: 0, rank: 1)
+        
+        appleItem(name: "Ultra 2", variety: "Watch", price: 1149000, color: "Midnight", count: 0, rank: 2)
+        appleItem(name: "Ultra 2", variety: "Watch", price: 1149000, color: "Starlight", count: 0, rank: 2)
+        appleItem(name: "Ultra 2", variety: "Watch", price: 1149000, color: "Silver", count: 0, rank: 2)
+        appleItem(name: "Ultra 2", variety: "Watch", price: 1149000, color: "Space Gray", count: 0, rank: 2)
     }
     
-    func updateItemVariety() {
-            var updatedItems: [appleItem] = []
-
-            for item in itemArray {
-                var updatedItem = item // item의 복사본을 만듭니다.
-                if ["MacBook", "iMac", "Mac Mini"].contains(item.name) {
-                    updatedItem.variety = "Mac"
-                } else if ["iPhone 15 Pro", "iPhone 15", "iPhone SE"].contains(item.name) { // item 대신 item.name을 사용합니다.
-                    updatedItem.variety = "iPhone"
-                } else if ["iPad", "iPad Air", "iPad Mini", "iPad Pro"].contains(item.name) { // item 대신 item.name을 사용합니다.
-                    updatedItem.variety = "iPad"
-                } else {
-                    updatedItem.variety = "Watch"
-                }
-                updatedItems.append(updatedItem)
-            }
-
-            itemArray = updatedItems // 완성된 updatedItems 배열로 itemArray를 업데이트합니다.
-    }
     
     // Mac , iMac , ... Variety로 분류
     func itemsVariety(forVariety variety: String) -> [appleItem] {
