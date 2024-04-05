@@ -27,6 +27,7 @@ class MiddleCell: UICollectionViewCell {
         cellPriceButtonView.layer.cornerRadius = 12
     }
     
+    
     private func setupRoundedCorners() {
         // 모서리 둥글게 설정
         self.layer.cornerRadius = 10

@@ -7,9 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+
+
+class ViewController: UIViewController, UITableViewDataSource, SecondViewControllerDelegate {
     
-    
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+    }
+
+
+
     // ******* 나연님 코드 *******
     
     var selectedbtn = 1
@@ -208,13 +215,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     //middleCollectionView
     @IBOutlet weak var middleCollectionView: UICollectionView!
-    
-    
     @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var bottomView: UIView!
+    
     
     
     override func viewDidLoad() {
@@ -232,6 +238,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         
     }
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
@@ -475,6 +483,15 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         return "\(row + 1)" // 1부터 10까지의 수량을 문자열로 반환
     }
     
+//    func didSelectBasket(with items: [appleItem]) {
+//        print("SecondViewController -> ViewController: \(items)")
+//        itemArray.append(contentsOf: items)
+//        bottomTableView.reloadData()
+//        totalPriceUpdate()
+//        checkPaymentAvailability()
+//       }
+    
+    
     // 피커뷰에서 선택된 행의 값을 가져와서 주문 수량을 업데이트
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // 현재 선택된 셀의 인덱스를 가져옵니다.
@@ -512,6 +529,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
 }
+
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -544,13 +562,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         cell.image.image = image
         
         return cell
-        //let item = testitemArray[indexPath.row]
-        //cell.black.text = "₩ " + formatCurrency(amount: item.price)!
-        //cell.white.text = item.name
-        //cell.image.image = UIImage(named: item.name)
-        
-        //return cell
     }
+
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -561,9 +574,31 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         layout.itemSize = CGSize(width: itemWidth, height: 190)
         self.middleCollectionView.collectionViewLayout = layout
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            // 선택된 셀에 해당하는 데이터 가져오기
+            guard indexPath.row < testitemArray.count else {
+                return
+            }
+            let selectedItem = testitemArray[indexPath.row]
+            
+            // 세컨드 뷰 컨트롤러 인스턴스 생성
+            let secondViewController = SecondViewController()
+            
+            // 세컨드 뷰 컨트롤러에 데이터 전달
+            secondViewController.selectedItem = selectedItem
+            
+            // 세컨드 뷰 컨트롤러 표시
+            self.present(secondViewController, animated: true, completion: nil)
+        }
 }
 
-
-
-
+// Remove this duplicate declaration of collectionView(_:didSelectItemAt:)
+/* private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
+    if let destinationVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
+        destinationVC.itemArray = [appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)] // 데이터 전달
+        destinationVC.modalPresentationStyle = .fullScreen // 풀스크린으로 설정
+        self.present(destinationVC, animated: true, completion: nil) // show 방식으로 화면 전환
+    }
+} */
