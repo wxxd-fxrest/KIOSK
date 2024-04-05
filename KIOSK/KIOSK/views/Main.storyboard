@@ -310,7 +310,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="800,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16V-TX-cWh">
-                                                            <rect key="frame" x="30" y="135" width="161" height="20"/>
+                                                            <rect key="frame" x="30" y="133" width="161" height="20"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="PQO-Kj-V3F"/>
@@ -320,7 +320,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mac" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqb-12-q0Z">
-                                                            <rect key="frame" x="40" y="105" width="141" height="30"/>
+                                                            <rect key="frame" x="20" y="103" width="181" height="30"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -334,11 +334,11 @@
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="wcZ-oH-KrA" secondAttribute="trailing" constant="30" id="8TJ-ih-POf"/>
-                                                        <constraint firstItem="iqb-12-q0Z" firstAttribute="leading" secondItem="7L2-45-Rtx" secondAttribute="leading" constant="40" id="UqF-l1-5wo"/>
-                                                        <constraint firstItem="iqb-12-q0Z" firstAttribute="top" secondItem="wcZ-oH-KrA" secondAttribute="bottom" constant="5" id="Xml-uf-ggI"/>
+                                                        <constraint firstItem="iqb-12-q0Z" firstAttribute="leading" secondItem="7L2-45-Rtx" secondAttribute="leading" constant="20" id="UqF-l1-5wo"/>
+                                                        <constraint firstItem="iqb-12-q0Z" firstAttribute="top" secondItem="wcZ-oH-KrA" secondAttribute="bottom" constant="3" id="Xml-uf-ggI"/>
                                                         <constraint firstItem="wcZ-oH-KrA" firstAttribute="top" secondItem="7L2-45-Rtx" secondAttribute="top" constant="20" id="YRE-wz-qIF"/>
                                                         <constraint firstItem="16V-TX-cWh" firstAttribute="top" secondItem="iqb-12-q0Z" secondAttribute="bottom" id="dTK-II-aed"/>
-                                                        <constraint firstAttribute="trailing" secondItem="iqb-12-q0Z" secondAttribute="trailing" constant="40" id="het-mD-pk8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="iqb-12-q0Z" secondAttribute="trailing" constant="20" id="het-mD-pk8"/>
                                                         <constraint firstAttribute="trailing" secondItem="16V-TX-cWh" secondAttribute="trailing" constant="30" id="oPP-nJ-xkP"/>
                                                         <constraint firstItem="16V-TX-cWh" firstAttribute="leading" secondItem="7L2-45-Rtx" secondAttribute="leading" constant="30" id="poK-lM-Yng"/>
                                                         <constraint firstItem="wcZ-oH-KrA" firstAttribute="leading" secondItem="7L2-45-Rtx" secondAttribute="leading" constant="30" id="tOS-mj-SFr"/>
@@ -564,17 +564,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnL-Jg-WRT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1691.6030534351144" y="-10.563380281690142"/>
-        </scene>
-        <!--SecondViewController-->
-        <scene sceneID="pOF-H7-mXy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SecondViewCon" storyboardName="SecondStoryboard" referencedIdentifier="SecondViewController" id="HRj-oD-4ld" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="KBn-7O-DtS"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="grx-wc-5Kg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1691.6030534351144" y="-45.774647887323944"/>
+            <point key="canvasLocation" x="1623" y="-28"/>
         </scene>
     </scenes>
     <resources>

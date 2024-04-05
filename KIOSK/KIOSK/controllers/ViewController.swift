@@ -121,16 +121,24 @@ class ViewController: UIViewController, UITableViewDataSource {
         if(sender==allButton){
             if(selectedbtn==1){
                 print("Mac 전체")
-             
+                testitemArray = myDataManager.itemArray
+                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+                testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
+              
             }else if(selectedbtn==2){
                 print("iPhone 전체")
+                testitemArray = myDataManager.itemArray
+                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+                testitemArray = myDataManager.itemsVariety(forVariety: "iPhone", arr: testitemArray)
                 
             }else if(selectedbtn==3){
                 print("iPad 전체")
+                testitemArray = myDataManager.itemArray
+                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+                testitemArray = myDataManager.itemsVariety(forVariety: "iPad", arr: testitemArray)
                 
             }else if(selectedbtn==4){
                 print("Watch 전체")
-    
             }
         }else if(sender == macBookButton){
             if(selectedbtn==1){
@@ -144,7 +152,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
             }else if(selectedbtn==4){
                 print("Series 9")
-               
+                
             }
         }else if(sender == iMacButton){
             if(selectedbtn==1){
@@ -155,10 +163,10 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
             }else if(selectedbtn==3){
                 print("iPad")
-            
+                
             }else if(selectedbtn==4){
                 print("Ultra 2")
-               
+                
             }
         }else if(sender == macMiniButton){
             if(selectedbtn==1){
@@ -166,32 +174,32 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
             }else if(selectedbtn==2){
                 print("iPhone SE")
-   
+                
             }else if(selectedbtn==3){
                 print("iPad Pro")
-
+                
                 
             }else if(selectedbtn==4){
                 //print("Mac Mini")
             }
         }
+        //middleCollectionView.reloadData()
     }
     
     // ******* 나연님 코드 *******
     
     // 임시 데이터
     var itemArray: [appleItem] = [
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2),
-        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1),
-        appleItem(name: "iPhone 15 Pro", variety: "iPhone", price: 1550000, color: "Space Gray", count: 2)
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1),
+        appleItem(name: "Mac Mini M2", variety: "iPad", price: 850000, color: "Silver", count: 1, rank: 1)
     ]
     
     
     //테스트 공간
     var newitemArray: [appleItem] = []
+    var testitemArray: [appleItem] = []
     var myDataManager = DataManager()
     var midPageCount = 2
     
@@ -212,6 +220,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         configureUIMid()
         configureUI()
         setupDatas()
+        
+        testitemArray = myDataManager.itemArray
+        testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+        testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
+        for i in testitemArray {
+            print(i, i.name)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -296,7 +312,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     func setupDatas() {
         //수정하기
         myDataManager.makeItemData()
-        myDataManager.updateItemVariety()
         newitemArray = myDataManager.getItemDate()
     }
     
@@ -476,17 +491,17 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         // 결제 가능 여부 확인
         checkPaymentAvailability()
     }
-    
-    // 결제하기 버튼 활성화 비활성화 매서드
     func checkPaymentAvailability() {
         print(itemArray)
         if itemArray.isEmpty {
             // itemArray가 비어있으면 결제하기 버튼 비활성화
+            cancelButton.isEnabled = false
             payButton.isEnabled = false
             payButton.backgroundColor = UIColor.lightGray
             payButton.setTitleColor(.black, for: .normal)
         } else {
             // itemArray에 내용이 있으면 결제하기 버튼 활성화
+            cancelButton.isEnabled = true
             payButton.isEnabled = true
             payButton.backgroundColor = .black
             payButton.setTitleColor(.white, for: .normal)
@@ -495,10 +510,8 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 }
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemArray.count
+        return testitemArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -507,15 +520,33 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             fatalError("Unable to dequeue MyCustomCell")
         }
         setupCollectionView()
-        let item = itemArray[indexPath.row]
+        
+        // testitemArray에서 안전하게 아이템 추출
+        guard indexPath.row < testitemArray.count else {
+            return cell
+        }
+        let item = testitemArray[indexPath.row]
+        
+        // formatCurrency(amount:)의 반환값이 nil이 아닌지 확인
+        
         cell.black.text = "₩ " + formatCurrency(amount: item.price)!
         cell.white.text = item.name
-        cell.image.image = UIImage(named: "imac")
-        print(item.name)
         
-        print("cell")
+        // UIImage(named:) 생성자가 nil을 반환하지 않는지 확인
+        guard let image = UIImage(named: item.name) else {
+            print("Image named \(item.name) not found, setting default image")
+            cell.image.image = UIImage(named: "DefaultImage") // 기본 이미지 설정
+            return cell
+        }
+        cell.image.image = image
         
         return cell
+        //let item = testitemArray[indexPath.row]
+        //cell.black.text = "₩ " + formatCurrency(amount: item.price)!
+        //cell.white.text = item.name
+        //cell.image.image = UIImage(named: item.name)
+        
+        //return cell
     }
     
     func setupCollectionView() {
@@ -530,5 +561,5 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
 }
 
 
-    
+
 
