@@ -58,7 +58,6 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
             macMiniButton.setTitle("iPhone SE", for: .normal)
             didTappedProductBtn(allButton)
             
-            
         }else if sender == iPadButton{
             //pad 버튼 눌림
             //print("ipad 버튼 눌림")
@@ -69,7 +68,6 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
             iMacButton.setTitle("iPad", for: .normal)
             macMiniButton.setTitle("iPad Pro", for: .normal)
             didTappedProductBtn(allButton)
-            
             
         }else if sender == watchButton{
             //watch 버튼 눌림
@@ -116,76 +114,25 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
         sender.backgroundColor = UIColor.black
         sender.setTitleColor(.white, for: .normal)
         sender.titleLabel?.textColor = .white
+        var names = ["Mac", "iPhone", "iPad", "Watch"]
         
-        //clicked
-        if(sender==allButton){
-            if(selectedbtn==1){
-                print("Mac 전체")
-                testitemArray = myDataManager.itemArray
-                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
-                testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
-                
-            }else if(selectedbtn==2){
-                print("iPhone 전체")
-                testitemArray = myDataManager.itemArray
-                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
-                testitemArray = myDataManager.itemsVariety(forVariety: "iPhone", arr: testitemArray)
-                
-            }else if(selectedbtn==3){
-                print("iPad 전체")
-                testitemArray = myDataManager.itemArray
-                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
-                testitemArray = myDataManager.itemsVariety(forVariety: "iPad", arr: testitemArray)
-                
-            }else if(selectedbtn==4){
-                print("Watch 전체")
-                testitemArray = myDataManager.itemArray
-                testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
-                testitemArray = myDataManager.itemsVariety(forVariety: "Watch", arr: testitemArray)
-            }
-        }else if(sender == macBookButton){
-            if(selectedbtn==1){
-                print("MacBook")
-                
-            }else if(selectedbtn==2){
-                print("iPhone 15 Pro")
-                
-            }else if(selectedbtn==3){
-                print("iPad Air")
-                
-            }else if(selectedbtn==4){
-                print("Series 9")
-                
-            }
-        }else if(sender == iMacButton){
-            if(selectedbtn==1){
-                print("iMac")
-                
-            }else if(selectedbtn==2){
-                print("iPhone 15")
-                
-            }else if(selectedbtn==3){
-                print("iPad")
-                
-            }else if(selectedbtn==4){
-                print("Ultra 2")
-                
-            }
-        }else if(sender == macMiniButton){
-            if(selectedbtn==1){
-                print("Mac Mini")
-                
-            }else if(selectedbtn==2){
-                print("iPhone SE")
-                
-            }else if(selectedbtn==3){
-                print("iPad Pro")
-                
-                
-            }else if(selectedbtn==4){
-                //print("Mac Mini")
-            }
+        switch sender {
+        case allButton:
+            chooseButton(variety: names[selectedbtn-1])
+            break
+        case macBookButton:
+            chooseButton2(rank: 1, variety: names[selectedbtn-1])
+            break
+        case iMacButton:
+            chooseButton2(rank: 2, variety: names[selectedbtn-1])
+            break
+        case macMiniButton:
+            chooseButton2(rank: 3, variety: names[selectedbtn-1])
+            break
+        default:
+            break
         }
+        
         middleCollectionView.reloadData()
     }
     
@@ -267,6 +214,17 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
         
         return cell
         
+    }
+    func chooseButton(variety: String){
+        testitemArray = myDataManager.itemArray
+        testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+        testitemArray = myDataManager.itemsVariety(forVariety: variety, arr: testitemArray)
+    }
+    func chooseButton2(rank: Int, variety: String){
+        testitemArray = myDataManager.itemArray
+        testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
+        testitemArray = myDataManager.itemsVariety(forVariety: variety, arr: testitemArray)
+        testitemArray = myDataManager.itemsRank(forVariety: rank, arr: testitemArray)
     }
     func configureUIMid(){
         middleCollectionView.dataSource = self
@@ -547,11 +505,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MiddleCell  else {
+            return
+        }
+        var useArr = myDataManager.itemsName(forVariety: cell.white.text ?? "", arr: testitemArray)
+        print(useArr, "내용확인")
         
         let storyboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
             
-            destinationVC.itemArray = [appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)] // 데이터 전달
+            // 데이터 전달
+            destinationVC.itemArray = useArr
             
             // 모달 프레젠테이션 스타일을 설정할 수 있습니다. 예: .fullScreen, .pageSheet 등
             destinationVC.modalPresentationStyle = .fullScreen // 필요에 따라 조정
@@ -570,7 +534,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         layout.itemSize = CGSize(width: itemWidth, height: 190)
         self.middleCollectionView.collectionViewLayout = layout
     }
-    
 }
 
 

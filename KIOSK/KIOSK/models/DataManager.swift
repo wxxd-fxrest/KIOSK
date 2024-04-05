@@ -98,12 +98,14 @@ class DataManager {
     func itemsVariety(forVariety variety: String, arr items : [appleItem]) -> [appleItem] {
         return items.filter { $0.variety == variety }
     }
-    
     func itemsRank(forVariety rank : Int, arr items : [appleItem]) -> [appleItem] {
         return items.filter { $0.rank == rank }
     }
     func itemsColor(forVariety color : String, arr items : [appleItem]) -> [appleItem] {
         return items.filter { $0.color == color }
+    }
+    func itemsName(forVariety name : String, arr items : [appleItem]) -> [appleItem] {
+        return items.filter { $0.name == name }
     }
     
     func getItemDate() -> [appleItem] {
