@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, SecondViewControllerDelegate {
     
     
     // ******* 나연님 코드 *******
@@ -124,7 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 testitemArray = myDataManager.itemArray
                 testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
                 testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
-              
+                
             }else if(selectedbtn==2){
                 print("iPhone 전체")
                 testitemArray = myDataManager.itemArray
@@ -227,10 +227,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         testitemArray = myDataManager.itemArray
         testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
         testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
-        for i in testitemArray {
-            print(i, i.name)
-        }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -242,20 +238,20 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // color에 따라 이미지 설정
         let item = itemArray[indexPath.row]
-        
         switch item.color {
-        case "Silver":
+        case "SilverColor":
             cell.buyColorInCell.image = UIImage(named: "silver")
-        case "Space Gray":
+        case "SpaceGrayColor":
             cell.buyColorInCell.image = UIImage(named: "space gray")
-        case "Starlight":
+        case "StarLightColor":
             cell.buyColorInCell.image = UIImage(named: "starlight")
-        case "Midnight":
+        case "MidnightColor":
             cell.buyColorInCell.image = UIImage(named: "midnight")
         default:
             // 기본 이미지 설정
-            cell.buyColorInCell.image = UIImage(named: "mango")
+            cell.buyColorInCell.image = UIImage(named: "starlight")
         }
+        
         
         let totalPriceForRow = item.price * item.count
         cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
@@ -274,6 +270,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     func configureUIMid(){
         middleCollectionView.dataSource = self
+        middleCollectionView.delegate = self
     }
     
     // 초기 설정
@@ -311,6 +308,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         return formatter.string(from: NSNumber(value: amount))
     }
     
+    
+    func didSelectBasket(with items: [appleItem]) {
+        print("SecondViewController -> ViewController: \(items)")
+    }
     
     func setupDatas() {
         //수정하기
@@ -497,18 +498,18 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func checkPaymentAvailability() {
         print(itemArray)
         if itemArray.isEmpty {
-          // itemArray가 비어있으면 결제하기 버튼 비활성화
-          cancelButton.isEnabled = false
-          payButton.isEnabled = false
-          payButton.backgroundColor = UIColor.lightGray
-          payButton.setTitleColor(.black, for: .normal)
+            // itemArray가 비어있으면 결제하기 버튼 비활성화
+            cancelButton.isEnabled = false
+            payButton.isEnabled = false
+            payButton.backgroundColor = UIColor.lightGray
+            payButton.setTitleColor(.black, for: .normal)
         } else {
-          // itemArray에 내용이 있으면 결제하기 버튼 활성화
-          cancelButton.isEnabled = true
-          payButton.isEnabled = true
-          payButton.backgroundColor = .black
-          payButton.setTitleColor(.white, for: .normal)
-
+            // itemArray에 내용이 있으면 결제하기 버튼 활성화
+            cancelButton.isEnabled = true
+            payButton.isEnabled = true
+            payButton.backgroundColor = .black
+            payButton.setTitleColor(.white, for: .normal)
+            
         }
     }
 }
@@ -544,14 +545,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         cell.image.image = image
         
         return cell
-        //let item = testitemArray[indexPath.row]
-        //cell.black.text = "₩ " + formatCurrency(amount: item.price)!
-        //cell.white.text = item.name
-        //cell.image.image = UIImage(named: item.name)
-        
-        //return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
+            
+            destinationVC.itemArray = [appleItem(name: "MacBook", variety: "Mac", price: 2390000, color: "Midnight", count: 0, rank: 1)] // 데이터 전달
+            
+            // 모달 프레젠테이션 스타일을 설정할 수 있습니다. 예: .fullScreen, .pageSheet 등
+            destinationVC.modalPresentationStyle = .fullScreen // 필요에 따라 조정
+            destinationVC.delegate = self
+            
+            // 뷰 컨트롤러를 모달로 표시합니다.
+            self.present(destinationVC, animated: true, completion: nil)
+        }
+    }
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8 // Vertical spacing between cells
@@ -561,7 +570,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         layout.itemSize = CGSize(width: itemWidth, height: 190)
         self.middleCollectionView.collectionViewLayout = layout
     }
-
+    
 }
 
 

@@ -16,9 +16,7 @@ class SecondViewController: UIViewController {
 
     
     // MARK: - Data
-    var itemArray: [appleItem] = [
-        appleItem(name: "iPad Air", variety: "iPad", price: 850000, color: "StarLightColor", count: 1, rank: 1)
-    ]
+    var itemArray: [appleItem] = []
     
     
     // MARK: - Outlet | Image
@@ -60,6 +58,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // MARK: BackGround
         if let backgroundColor = UIColor(named: "PageBackgroundColor") {
@@ -267,7 +266,9 @@ class SecondViewController: UIViewController {
     
     // MARK: - Basket Button Pressed
     @IBAction func basketButtonPressed(_ sender: UIButton) {
+        print(itemArray, "전달전")
         delegate?.didSelectBasket(with: itemArray)
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
+    
 }
