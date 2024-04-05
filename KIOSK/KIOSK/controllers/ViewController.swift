@@ -211,6 +211,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     var midPageCount = 2
     
     //middleCollectionView
+    @IBOutlet weak var middleCollectionView: UICollectionView!
+    
     
     @IBOutlet weak var bottomTableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
@@ -222,6 +224,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUIMid()
         configureUI()
         setupDatas()
     }
@@ -264,6 +267,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         return cell
         
+    }
+    func configureUIMid(){
+        middleCollectionView.dataSource = self
     }
     
     // 초기 설정
@@ -502,83 +508,34 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
 }
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MiddleCell", for: indexPath) as? MiddleCell else {
+            fatalError("Unable to dequeue MyCustomCell")
+        }
+        setupCollectionView()
+        
+        print("cell")
+        
+        return cell
+    }
+    
+    func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = .zero
+        layout.minimumLineSpacing = 5 //as per your requirement
+        layout.minimumInteritemSpacing = 0 //as per your requirement
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: self.middleCollectionView.frame.width / 2, height: 160)
+        self.middleCollectionView.collectionViewLayout = layout
+    }
+}
 
-//
-//  ViewController.swift
-//  AppleStore
-//
-//  Created by Seungseop Lee on 4/1/24.
-//
-
-/*
- func didSelectBasket(with items: [appleItem]) {
- print("SecondViewController -> ViewController: \(items)")
- 
- itemArray.append(contentsOf: items)
- bottomTableView.reloadData()
- totalPriceUpdate()
- }
- */
-
-
-
-
-
-
-
-
-/*
- 
- extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
- // 피커뷰의 컴포넌트 수
- func numberOfComponents(in pickerView: UIPickerView) -> Int {
- return 1
- }
- 
- // 피커뷰의 행 수
- func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
- return 10
- }
- 
- // 각 행에 해당하는 타이틀을 반환
- func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
- return "\(row + 1)" // 1부터 10까지의 수량을 문자열로 반환
- }
- 
- // 피커뷰에서 선택된 행의 값을 가져와서 주문 수량을 업데이트
- func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
- // 현재 선택된 셀의 인덱스를 가져옵니다.
- guard let indexPath = bottomTableView.indexPathForSelectedRow else {
- return
- }
- // 선택된 셀에 해당하는 아이템을 가져옵니다.
- var selectedItem = itemArray[indexPath.row]
- // 새로운 주문 수량을 설정합니다.
- let newCount = row + 1
- // 아이템의 주문 수량을 변경하고 테이블 뷰를 업데이트합니다.
- selectedItem.count = newCount
- itemArray[indexPath.row] = selectedItem
- bottomTableView.reloadRows(at: [indexPath], with: .automatic)
- // 총 가격 업데이트
- totalPriceUpdate()
- // 결제 가능 여부 확인
- checkPaymentAvailability()
- }
- 
- // 결제하기 버튼 활성화 비활성화 매서드
- func checkPaymentAvailability() {
- print(itemArray)
- if itemArray.isEmpty {
- // itemArray가 비어있으면 결제하기 버튼 비활성화
- payButton.isEnabled = false
- payButton.backgroundColor = UIColor.lightGray
- payButton.setTitleColor(.black, for: .normal)
- } else {
- // itemArray에 내용이 있으면 결제하기 버튼 활성화
- payButton.isEnabled = true
- payButton.backgroundColor = .black
- payButton.setTitleColor(.white, for: .normal)
- }
- }
- }
- */
