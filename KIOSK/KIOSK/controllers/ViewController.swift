@@ -124,7 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 testitemArray = myDataManager.itemArray
                 testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
                 testitemArray = myDataManager.itemsVariety(forVariety: "Mac", arr: testitemArray)
-              
+                
             }else if(selectedbtn==2){
                 print("iPhone 전체")
                 testitemArray = myDataManager.itemArray
@@ -242,20 +242,20 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // color에 따라 이미지 설정
         let item = itemArray[indexPath.row]
-        
         switch item.color {
-        case "Silver":
+        case "SilverColor":
             cell.buyColorInCell.image = UIImage(named: "silver")
-        case "Space Gray":
+        case "SpaceGrayColor":
             cell.buyColorInCell.image = UIImage(named: "space gray")
-        case "Starlight":
+        case "StarLightColor":
             cell.buyColorInCell.image = UIImage(named: "starlight")
-        case "Midnight":
+        case "MidnightColor":
             cell.buyColorInCell.image = UIImage(named: "midnight")
         default:
             // 기본 이미지 설정
-            cell.buyColorInCell.image = UIImage(named: "mango")
+            cell.buyColorInCell.image = UIImage(named: "starlight")
         }
+        
         
         let totalPriceForRow = item.price * item.count
         cell.buyPriceInCell.text = "₩ " + formatCurrency(amount: totalPriceForRow)!
@@ -497,18 +497,18 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func checkPaymentAvailability() {
         print(itemArray)
         if itemArray.isEmpty {
-          // itemArray가 비어있으면 결제하기 버튼 비활성화
-          cancelButton.isEnabled = false
-          payButton.isEnabled = false
-          payButton.backgroundColor = UIColor.lightGray
-          payButton.setTitleColor(.black, for: .normal)
+            // itemArray가 비어있으면 결제하기 버튼 비활성화
+            cancelButton.isEnabled = false
+            payButton.isEnabled = false
+            payButton.backgroundColor = UIColor.lightGray
+            payButton.setTitleColor(.black, for: .normal)
         } else {
-          // itemArray에 내용이 있으면 결제하기 버튼 활성화
-          cancelButton.isEnabled = true
-          payButton.isEnabled = true
-          payButton.backgroundColor = .black
-          payButton.setTitleColor(.white, for: .normal)
-
+            // itemArray에 내용이 있으면 결제하기 버튼 활성화
+            cancelButton.isEnabled = true
+            payButton.isEnabled = true
+            payButton.backgroundColor = .black
+            payButton.setTitleColor(.white, for: .normal)
+            
         }
     }
 }
@@ -543,13 +543,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         }
         cell.image.image = image
         
-        return cell
-        //let item = testitemArray[indexPath.row]
-        //cell.black.text = "₩ " + formatCurrency(amount: item.price)!
-        //cell.white.text = item.name
-        //cell.image.image = UIImage(named: item.name)
         
-        //return cell
+        return cell
     }
     
     func setupCollectionView() {
@@ -561,7 +556,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         layout.itemSize = CGSize(width: itemWidth, height: 190)
         self.middleCollectionView.collectionViewLayout = layout
     }
-
+    
 }
 
 
