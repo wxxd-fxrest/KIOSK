@@ -132,7 +132,7 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var bottomView: UIView!
-    
+
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -141,6 +141,7 @@ class ViewController: UIViewController, UITableViewDataSource, SecondViewControl
         configureUIMid()
         configureUI()
         setupDatas()
+
         
         testitemArray = myDataManager.itemArray
         testitemArray = myDataManager.itemsColor(forVariety: "Midnight", arr: testitemArray)
