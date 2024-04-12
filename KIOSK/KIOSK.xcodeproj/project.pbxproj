@@ -15,6 +15,10 @@
 		52A7AF6D2BBBA3A600DABD4E /* BottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7AF6C2BBBA3A600DABD4E /* BottomCell.swift */; };
 		52A7AF6F2BBBA3B000DABD4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7AF6E2BBBA3B000DABD4E /* ViewController.swift */; };
 		52A7AF712BBBA3BE00DABD4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A7AF702BBBA3BE00DABD4E /* Assets.xcassets */; };
+		FA27C7E82BBE746600937293 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27C7E72BBE746600937293 /* SecondViewController.swift */; };
+		FA27C7EC2BBE785E00937293 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA27C7EB2BBE785E00937293 /* SecondStoryboard.storyboard */; };
+		FAAC02562BBBCF2800BC98D5 /* MiddleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC02552BBBCF2800BC98D5 /* MiddleCell.swift */; };
+		FAAC02582BBBEA7100BC98D5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC02572BBBEA7100BC98D5 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		52A7AF6C2BBBA3A600DABD4E /* BottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomCell.swift; sourceTree = "<group>"; };
 		52A7AF6E2BBBA3B000DABD4E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52A7AF702BBBA3BE00DABD4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA27C7E72BBE746600937293 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FA27C7EB2BBE785E00937293 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
+		FAAC02552BBBCF2800BC98D5 /* MiddleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleCell.swift; sourceTree = "<group>"; };
+		FAAC02572BBBEA7100BC98D5 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 		52A7AF722BBBA3CA00DABD4E /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA27C7E72BBE746600937293 /* SecondViewController.swift */,
 				52A7AF6E2BBBA3B000DABD4E /* ViewController.swift */,
 			);
 			path = controllers;
@@ -83,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				52A7AF682BBBA39300DABD4E /* Main.storyboard */,
+				FA27C7EB2BBE785E00937293 /* SecondStoryboard.storyboard */,
 				52A7AF5F2BBBA2FF00DABD4E /* LaunchScreen.storyboard */,
 			);
 			path = views;
@@ -93,6 +103,8 @@
 			children = (
 				52A7AF6A2BBBA3A100DABD4E /* appleItems.swift */,
 				52A7AF6C2BBBA3A600DABD4E /* BottomCell.swift */,
+				FAAC02552BBBCF2800BC98D5 /* MiddleCell.swift */,
+				FAAC02572BBBEA7100BC98D5 /* DataManager.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -156,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A7AF692BBBA39300DABD4E /* Main.storyboard in Resources */,
+				FA27C7EC2BBE785E00937293 /* SecondStoryboard.storyboard in Resources */,
 				52A7AF712BBBA3BE00DABD4E /* Assets.xcassets in Resources */,
 				52A7AF612BBBA2FF00DABD4E /* LaunchScreen.storyboard in Resources */,
 			);
@@ -168,10 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAC02562BBBCF2800BC98D5 /* MiddleCell.swift in Sources */,
 				52A7AF6F2BBBA3B000DABD4E /* ViewController.swift in Sources */,
 				52A7AF6D2BBBA3A600DABD4E /* BottomCell.swift in Sources */,
+				FAAC02582BBBEA7100BC98D5 /* DataManager.swift in Sources */,
 				52A7AF552BBBA2FE00DABD4E /* AppDelegate.swift in Sources */,
 				52A7AF572BBBA2FE00DABD4E /* SceneDelegate.swift in Sources */,
+				FA27C7E82BBE746600937293 /* SecondViewController.swift in Sources */,
 				52A7AF6B2BBBA3A100DABD4E /* appleItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
