@@ -13,7 +13,6 @@ struct appleItem {
     let price: Int
     var color: String
     var count: Int
-    var rank: Int
 }
 
 
